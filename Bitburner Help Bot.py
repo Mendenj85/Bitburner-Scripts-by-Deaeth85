@@ -1,5 +1,6 @@
 import discord
 import os
+#used to keep bot alive due to repl.it's 1 hour no use timeout feature
 from keep_alive import keep_alive
 from discord.ext import commands
 from github import Github
@@ -9,6 +10,7 @@ repo = g.get_repo("danielyxie/bitburner")
 contents = repo.get_contents("markdown")
 paths = [x.path for x in contents if x.path != "markdown/index.md"]
 
+#defines the prefix of the bot to call the commands
 bot = commands.Bot(command_prefix='!')
 
 @bot.event
@@ -18,6 +20,7 @@ async def on_ready():
     await bot.change_presence(status=discord.Status.online, activity=activity)
     print("Bot is ready!")
 
+    #todo - possibly make this a list or dictionary to make editing easier
 @bot.command(help="PM's the user with the list of available commands")
 async def teach(ctx):
     await ctx.author.send('The list below are the commands currently available for the Bitburner Help Bot\n\n`1: !order - Pulls the Recommended Bit Node Order page from "Read The Docs"\n2: !bn3 - Pulls a startup guide written by Angr for BN3(Corps)\n3: !format - Shows how to format .js code in Discord\n4: !spoiler - Shows how to format spoilers for text in Discord\n5: !escape - Gives assistance to players "still lost" right before, or after, installing TRP\n6: !inject - Link to Injecting HTML from Advanced Gameplay in "Read The Docs"\n7: !stats - Link to Insights custom stats script\n8: !singularity - Link to Bitburner Markdown Singularity page\n9: !markdown args - Link to Bitburner Markdown pages based on the args you supply\n10: !batch - Link to Batch Algorithms section of Hacking Algorithms on "Read the Docs"\n11: !ascend - General advice on when to ascend gang members\n12: !gang - Link to Bitburner Markdown Gang Interface page\n13: !rss - Link to #resources channel in Bitburner Discord\n14: !formulas - Link to basic Formulas API\n15: !karma - Shows the undocumented function as a spoiler\n16: !startgang - Tells the requirments to start a gang outside of BN2\n17: !cores - Gives a description of what core upgrades do\n18: !rep - Gives a list of ways to earn rep\n19: !favor - Gives a breakdown of earning favor\n20: !bn4 - Explains the updates to BN4`\n\nIf you have any ideas for other commands that could be added, please PM Deaeth85')
