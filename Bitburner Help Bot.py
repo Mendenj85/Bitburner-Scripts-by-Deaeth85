@@ -42,7 +42,6 @@ async def spoiler(ctx):
 
 @bot.command(
     help='Gives assistance to players "still lost" right before, or after, installing TRP')
-
 async def escape(ctx):
     await ctx.channel.send('Step 1: ||Purchase The "Special Aug" from an end-game faction and install augs||\nStep 2: ||Look "around" the cave to find what you are looking for||\nStep 3: If you are still lost, maybe this clue from Zea might help - https://discord.com/channels/415207508303544321/415207923506216971/929207305612951592')
 
@@ -107,13 +106,14 @@ async def bn4(ctx):
 @bot.command(
     help='Link to all of the Bitburner Markdown pages based on args you supply'
     )
+#Code to be able to pull any page from the Markdown git-hub of the game
 async def markdown(ctx, args):
     userInput = args
-
     for path in paths:
         function = path.split('.')[-2]
         if userInput.lower() == function:
           return await ctx.channel.send("<https://github.com/danielyxie/bitburner/blob/dev/" + path +">")
+    #return an error if page doesn't exist
     await ctx.channel.send("That page does not exist!")
 
 my_secret = os.environ['token']
