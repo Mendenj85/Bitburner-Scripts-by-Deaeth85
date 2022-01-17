@@ -111,6 +111,19 @@ async def md(ctx, args=""):
         return await ctx.channel.send(''.join(linkList))
     await ctx.channel.send("That page does not exist!")
 
+@bot.event
+async def on_message(message):
+    content = message.content[1:].split(' ')
+    if message.author == bot.user:
+        return
+    if not message.content.startswith(bot.command_prefix):
+        return
+    if len(message.content)==1:
+        return
+    if content[0] not in commandList.keys():
+        return await message.channel.send("Command doesn't exist! type !help for a list of commands!")
+    await bot.process_commands(message)
+
 
 my_secret = os.environ['token']
 #keep_alive()
