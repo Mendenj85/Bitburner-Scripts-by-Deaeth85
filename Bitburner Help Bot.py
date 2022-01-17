@@ -12,12 +12,31 @@ paths.sort(key=lambda x: len(x))
 bot = commands.Bot(command_prefix='!',help_command=None)
 
 
-commandList = {
+commandDescriptions = {
     'help':'Displays possible commands (wow what a shocker)',
     'md':'<arg> Link to Bitburner Markdown pages based on the args you supply',
 }
-
-    
+guideDescriptions = {
+    'ascend': 'General advice on when to ascend gang members', 
+    'batch': 'Link to Batch Algorithms section of Hacking Algorithms on "Read the Docs"', 
+    'bn3': 'Pulls a startup guide written by Angr for BN3(Corps)', 
+    'bn4': 'Explains the updates to BN4', 
+    'cores': 'Gives a description of what core upgrades do', 
+    'escape': 'Gives assistance to players "still lost" right before, or after, installing TRP', 
+    'favor': 'Gives a breakdown of earning favor', 
+    'format': 'shows how to format .js code in Discord', 
+    'formulas': 'Link to basic Formulas API', 
+    'gang': 'Link to Bitburner Markdown Gang Interface page', 
+    'inject': 'Link to Injecting HTML from Advanced Gameplay in "Read The Docs', 
+    'karma': 'Shows the undocumented function as a spoiler', 
+    'order': 'Pulls the Recommended Bit Node Order page from "Read The Docs"', 
+    'rep': 'Gives a list of ways to earn rep', 
+    'rss': 'Link to #resources channel in Bitburner Discord', 
+    'singularity': 'Link to Bitburner Markdown Singularity page', 
+    'spoiler': 'Shows how to format spoilers for text in Discord', 
+    'startgang': 'Tells the requirments to start a gang outside of BN2', 
+    'stats': 'Link to Insights custom stats script'
+    }
 guideList = {
     'ascend':"General rule of thumb is to ascend when the ascension multiplier is at 1.6, slowly working your way to a 1.1 multiplier",
     'batch': "Here's a link that gives an overview on batching within Bitburner - <https://bitburner.readthedocs.io/en/latest/advancedgameplay/hackingalgorithms.html#batch-algorithms-hgw-hwgw-or-cycles>", 
@@ -40,27 +59,7 @@ guideList = {
     'stats': "<https://github.com/bitburner-official/bitburner-scripts/blob/master/custom-stats.js>"
 } 
 
-guideDescriptions = {
-    'ascend': 'General advice on when to ascend gang members', 
-    'batch': 'Link to Batch Algorithms section of Hacking Algorithms on "Read the Docs"', 
-    'bn3': 'Pulls a startup guide written by Angr for BN3(Corps)', 
-    'bn4': 'Explains the updates to BN4', 
-    'cores': 'Gives a description of what core upgrades do', 
-    'escape': 'Gives assistance to players "still lost" right before, or after, installing TRP', 
-    'favor': 'Gives a breakdown of earning favor', 
-    'format': 'shows how to format .js code in Discord', 
-    'formulas': 'Link to basic Formulas API', 
-    'gang': 'Link to Bitburner Markdown Gang Interface page', 
-    'inject': 'Link to Injecting HTML from Advanced Gameplay in "Read The Docs', 
-    'karma': 'Shows the undocumented function as a spoiler', 
-    'order': 'Pulls the Recommended Bit Node Order page from "Read The Docs"', 
-    'rep': 'Gives a list of ways to earn rep', 
-    'rss': 'Link to #resources channel in Bitburner Discord', 
-    'singularity': 'Link to Bitburner Markdown Singularity page', 
-    'spoiler': 'Shows how to format spoilers for text in Discord', 
-    'startgang': 'Tells the requirments to start a gang outside of BN2', 
-    'stats': 'Link to Insights custom stats script'
-    }
+
 @bot.command()
 async def guide(ctx, arg=""):
     await ctx.channel.send(guideList[arg])
@@ -76,16 +75,16 @@ async def help(ctx,args=""):
 
     if args == "":
         stringBuilder = ''
-        for key in commandList:
-            stringBuilder += '!{command} - {description}\n'.format(command=key,description=commandList[key])
+        for key in commandDescriptions:
+            stringBuilder += '!{command} - {description}\n'.format(command=key,description=commandDescriptions[key])
         for key in guideList:
             stringBuilder += '!{command} - {description}\n'.format(command=key,description=guideDescriptions[key]);
         
         stringBuilder += '\nIf you have any ideas for other commands that could be added, please submit a PR on the git-hub'
         await ctx.author.send(stringBuilder)
     else:
-        if args in commandList.keys():
-            await ctx.channel.send("{command} - {description}".format(command=args,description=commandList[args]))
+        if args in commandDescriptions.keys():
+            await ctx.channel.send("{command} - {description}".format(command=args,description=commandDescriptions[args]))
         elif args in guideDescriptions.keys():
             await ctx.channel.send("!guide {command} - {description}".format(command=args,description=guideDescriptions[args]))
         else:
@@ -117,7 +116,7 @@ async def on_message(message):
     if content[0] in guideList.keys():
         message.content = '!guide ' + content[0]
         return await bot.process_commands(message)
-    if content[0] not in commandList.keys():
+    if content[0] not in commandDescriptions.keys():
         return await message.channel.send("Command doesn't exist! type !help for a list of commands!")
     await bot.process_commands(message)
 
