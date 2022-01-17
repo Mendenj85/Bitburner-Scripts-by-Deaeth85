@@ -20,17 +20,12 @@ guideDirectory = os.getcwd()+'/guides/'
 fileList = [os.path.splitext(file)[0] for file in os.listdir(guideDirectory)]
 
 
+
 @bot.command()
 async def guide(ctx, arg=""):
     file = open(guideDirectory+arg+'.txt','r')
     contents = '\n'.join(file.read().splitlines()[2:])
     await ctx.channel.send(contents)
-@bot.event
-async def on_ready():
-    print('We have logged in as {0.user}'.format(bot))
-    activity = discord.Activity(name="!help || Possible Spoilers", type=3)
-    await bot.change_presence(status=discord.Status.online, activity=activity)
-    print("Bot is ready!")
 
 @bot.command()
 async def help(ctx,args=""):
@@ -70,6 +65,13 @@ async def md(ctx, args=""):
     if(len(linkList) > 0):
         return await ctx.channel.send(''.join(linkList))
     await ctx.channel.send("That page does not exist!")
+    
+@bot.event
+async def on_ready():
+    print('We have logged in as {0.user}'.format(bot))
+    activity = discord.Activity(name="!help || Possible Spoilers", type=3)
+    await bot.change_presence(status=discord.Status.online, activity=activity)
+    print("Bot is ready!")
 
 @bot.event
 async def on_message(message):
