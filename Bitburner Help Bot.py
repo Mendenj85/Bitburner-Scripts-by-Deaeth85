@@ -18,7 +18,7 @@ commandList = {
 }
 
     
-bbList = {
+guideList = {
     'ascend':"General rule of thumb is to ascend when the ascension multiplier is at 1.6, slowly working your way to a 1.1 multiplier",
     'batch': "Here's a link that gives an overview on batching within Bitburner - <https://bitburner.readthedocs.io/en/latest/advancedgameplay/hackingalgorithms.html#batch-algorithms-hgw-hwgw-or-cycles>", 
     'bn3': "Follow this link for a startup guide to corporations - <https://docs.google.com/document/d/e/2PACX-1vTzTvYFStkFjQut5674ppS4mAhWggLL5PEQ_IbqSRDDCZ-l-bjv0E6Uo04Z-UfPdaQVu4c84vawwq8E/pub>", 
@@ -40,7 +40,7 @@ bbList = {
     'stats': "<https://github.com/bitburner-official/bitburner-scripts/blob/master/custom-stats.js>"
 } 
 
-bbDescriptions = {
+guideDescriptions = {
     'ascend': 'General advice on when to ascend gang members', 
     'batch': 'Link to Batch Algorithms section of Hacking Algorithms on "Read the Docs"', 
     'bn3': 'Pulls a startup guide written by Angr for BN3(Corps)', 
@@ -62,11 +62,11 @@ bbDescriptions = {
     'stats': 'Link to Insights custom stats script'
     }
 @bot.command()
-async def bb(ctx, arg=""):
+async def guide(ctx, arg=""):
     if arg == "":
-        return await ctx.channel.send("Usage: !bb <arg>\nAvailable arg list: `{availableArgs}`".format(availableArgs = ', '.join(bbList.keys())))
-    if arg in bbList.keys():
-        await ctx.channel.send(bbList[arg])
+        return await ctx.channel.send("Usage: !guide <arg>\nAvailable arg list: `{availableArgs}`".format(availableArgs = ', '.join(guideList.keys())))
+    if arg in guideList.keys():
+        await ctx.channel.send(guideList[arg])
     else:
         await ctx.channel.send('This guide doesn\'t currently exist!');
 @bot.event
@@ -83,16 +83,16 @@ async def help(ctx,args=""):
         stringBuilder = ''
         for key in commandList:
             stringBuilder += '!{command} - {description}\n'.format(command=key,description=commandList[key])
-        for key in bbList:
-            stringBuilder += '!{command} - {description}\n'.format(command=key,description=bbList[key]);
+        for key in guideList:
+            stringBuilder += '!{command} - {description}\n'.format(command=key,description=guideDescriptions[key]);
         
         stringBuilder += '\nIf you have any ideas for other commands that could be added, please submit a PR on the git-hub'
         await ctx.author.send(stringBuilder)
     else:
         if args in commandList.keys():
             await ctx.channel.send("{command} - {description}".format(command=args,description=commandList[args]))
-        elif args in bbDescriptions.keys():
-            await ctx.channel.send("!guide {command} - {description}".format(command=args,description=bbDescriptions[args]))
+        elif args in guideDescriptions.keys():
+            await ctx.channel.send("!guide {command} - {description}".format(command=args,description=guideDescriptions[args]))
         else:
             await ctx.channel.send("Command doesn't exist!")
             
@@ -119,8 +119,8 @@ async def on_message(message):
         return
     if len(message.content)==1:
         return
-    if content[0] in bbList.keys():
-        message.content = '!bb ' + content[0]
+    if content[0] in guideList.keys():
+        message.content = '!guide ' + content[0]
         return await bot.process_commands(message)
     if content[0] not in commandList.keys():
         return await message.channel.send("Command doesn't exist! type !help for a list of commands!")
