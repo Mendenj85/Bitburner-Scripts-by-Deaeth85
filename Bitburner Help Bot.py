@@ -11,6 +11,7 @@ paths = [x.path for x in contents if x.path != "markdown/index.md"]
 paths.sort(key=lambda x: len(x))
 bot = commands.Bot(command_prefix='!',help_command=None)
 
+
 commandList = {
     'help':'Displays possible commands (wow what a shocker)',
     'md':'<arg> Link to Bitburner Markdown pages based on the args you supply',
@@ -107,6 +108,16 @@ async def md(ctx, args):
     if(len(linkList) > 0):
         return await ctx.channel.send(''.join(linkList))
     await ctx.channel.send("That page does not exist!")
+
+
+@bot.event
+async def on_message(message):
+    if not message.content.startswith(bot.command_prefix):
+        return
+    if len(message.content)==1:
+        return
+    if message.content[1:] not in bbList.keys():
+        return await message.channel.send("Command doesn't exist! type !help for a list of commands!")
 
 my_secret = os.environ['token']
 #keep_alive()
