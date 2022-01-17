@@ -157,7 +157,7 @@ async def on_message(message):
     if len(message.content)==1:
         return
     if content[0] not in commandList.keys():
-        return await message.channel.send("Command doesn't exist! type !help for a list of commands!")
+        return await message.channel.send("Command doesn't exist! Type `!help` for a list of commands!")
     await bot.process_commands(message)
 
 my_secret = os.environ['token']
