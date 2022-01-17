@@ -12,6 +12,22 @@ paths.sort(key=lambda x: len(x))
 bot = commands.Bot(command_prefix='!',help_command=None)
 
 commandList = {
+    'help':'Displays possible commands (wow what a shocker)',
+    'md':'<arg> Link to Bitburner Markdown pages based on the args you supply',
+    'guide':'<arg> Sends a guide for given arg'
+}
+
+guideList = {
+    'ascend':"General rule of thumb is to ascend when the ascension multiplier is at 1.6, slowly working your way to a 1.1 multiplier"
+}
+guideDescriptions = {
+    'order':'Pulls the Recommended Bit Node Order page from "Read The Docs"',
+    'rep':'Gives a list of ways to earn rep',
+    'rss':'Link to #resources channel in Bitburner Discord',
+    'singularity':'Link to Bitburner Markdown Singularity page',
+    'spoiler':'Shows how to format spoilers for text in Discord',
+    'startgang':'Tells the requirments to start a gang outside of BN2',
+    'stats':'Link to Insights custom stats script',  
     'ascend':'General advice on when to ascend gang members',
     'batch':'Link to Batch Algorithms section of Hacking Algorithms on "Read the Docs"',
     'bn3':'Pulls a startup guide written by Angr for BN3(Corps)',
@@ -24,20 +40,7 @@ commandList = {
     'gang':'Link to Bitburner Markdown Gang Interface page',
     'inject':'Link to Injecting HTML from Advanced Gameplay in "Read The Docs',
     'karma':'Shows the undocumented function as a spoiler',
-    'md':'<arg> Link to Bitburner Markdown pages based on the args you supply',
-    'order':'Pulls the Recommended Bit Node Order page from "Read The Docs"',
-    'rep':'Gives a list of ways to earn rep',
-    'rss':'Link to #resources channel in Bitburner Discord',
-    'singularity':'Link to Bitburner Markdown Singularity page',
-    'spoiler':'Shows how to format spoilers for text in Discord',
-    'startgang':'Tells the requirments to start a gang outside of BN2',
-    'stats':'Link to Insights custom stats script',    
 }
-
-guideList = {
-    'ascend':"General rule of thumb is to ascend when the ascension multiplier is at 1.6, slowly working your way to a 1.1 multiplier"
-}
-
 @bot.command()
 async def guide(ctx, arg=""):
     if arg == "":
