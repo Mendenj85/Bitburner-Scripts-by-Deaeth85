@@ -1,0 +1,10 @@
+format - shows how to format .js code in Discord
+
+This:
+\`\`\`js
+await ns.sleep(100);
+\`\`\`
+Turns into this:
+```js
+await ns.sleep(100)
+```

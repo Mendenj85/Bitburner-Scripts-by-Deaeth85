@@ -1,0 +1,11 @@
+rep - Gives a list of ways to earn rep
+
+Methods of gaining rep:
+1. Job: higher stats increase rep gain
+2. Auguments with reputation bonus (includes Neuroflux Governor)
+3. Faction favor, 1 favor = 1% faster gain
+4. Donations (unlocked at 150 favor, 1 rep per $1m donated, before bonuses)
+5. Infiltrations
+6. Coding Contracts can give rep to a single joined faction, or spread across all joined factions
+7. Endgame: ||high Intelligence has an effect on reputation gain||
+8. Endgame: ||Corps can directly add rep with Corp funds||

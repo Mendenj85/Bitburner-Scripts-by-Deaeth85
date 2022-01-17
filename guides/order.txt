@@ -1,0 +1,3 @@
+order - Pulls the Recommended Bit Node Order page from "Read The Docs"
+
+<https://bitburner.readthedocs.io/en/latest/guidesandtips/recommendedbitnodeorder.html>

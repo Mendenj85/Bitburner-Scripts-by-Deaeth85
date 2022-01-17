@@ -1,0 +1,3 @@
+ascend - General advice on when to ascend gang members
+
+General rule of thumb is to ascend when the ascension multiplier is at 1.6, slowly working your way to a 1.1 multiplier

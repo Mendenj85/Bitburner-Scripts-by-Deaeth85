@@ -1,0 +1,6 @@
+bn4 - Explains the updates to BN4
+
+The updated SF4.1 gives all Singularity functions now. The other change is the ram cost of singularity based scripts outside of BN4
+4.1 = 16x ram cost
+4.2 = 4x ram cost
+4.3 = 1x ram cost
