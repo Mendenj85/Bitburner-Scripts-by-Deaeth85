@@ -11,7 +11,8 @@ contents = repo.get_contents("markdown")
 paths = [x.path for x in contents if x.path != "markdown/index.md"]
 
 #defines the prefix of the bot to call the commands
-bot = commands.Bot(command_prefix='!')
+bot = commands.Bot(command_prefix='!',help_command=None)
+
 
 @bot.event
 async def on_ready():
@@ -22,7 +23,7 @@ async def on_ready():
 
     #todo - possibly make this a list or dictionary to make editing easier
 @bot.command(help="PM's the user with the list of available commands")
-async def teach(ctx):
+async def help(ctx):
     await ctx.author.send('The list below are the commands currently available for the Bitburner Help Bot\n\n`1: !order - Pulls the Recommended Bit Node Order page from "Read The Docs"\n2: !bn3 - Pulls a startup guide written by Angr for BN3(Corps)\n3: !format - Shows how to format .js code in Discord\n4: !spoiler - Shows how to format spoilers for text in Discord\n5: !escape - Gives assistance to players "still lost" right before, or after, installing TRP\n6: !inject - Link to Injecting HTML from Advanced Gameplay in "Read The Docs"\n7: !stats - Link to Insights custom stats script\n8: !singularity - Link to Bitburner Markdown Singularity page\n9: !markdown args - Link to Bitburner Markdown pages based on the args you supply\n10: !batch - Link to Batch Algorithms section of Hacking Algorithms on "Read the Docs"\n11: !ascend - General advice on when to ascend gang members\n12: !gang - Link to Bitburner Markdown Gang Interface page\n13: !rss - Link to #resources channel in Bitburner Discord\n14: !formulas - Link to basic Formulas API\n15: !karma - Shows the undocumented function as a spoiler\n16: !startgang - Tells the requirments to start a gang outside of BN2\n17: !cores - Gives a description of what core upgrades do\n18: !rep - Gives a list of ways to earn rep\n19: !favor - Gives a breakdown of earning favor\n20: !bn4 - Explains the updates to BN4`\n\nIf you have any ideas for other commands that could be added, please PM Deaeth85')
 
 @bot.command(
@@ -120,7 +121,7 @@ async def md(ctx, args):
     #return an error if page doesn't exist
     if(len(linkList) > 0):
         return await ctx.channel.send(''.join(linkList))
-    await ctx.channel.send("That page does not exist!")
+    return await ctx.channel.send("That page does not exist!")
 
 my_secret = os.environ['token']
 #keep_alive()
