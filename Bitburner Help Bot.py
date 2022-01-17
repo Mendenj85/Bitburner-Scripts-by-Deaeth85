@@ -58,21 +58,21 @@ async def help(ctx,args=""):
 
 @bot.command()
 async def ascend(ctx):
-    embed=discord.Embed(title="Gang Member Ascending", url="https://i.ibb.co/LSbWqj0/Bitburner-Logo.png", description='General rule of thumb is to ascend when the ascension multiplier is at 1.6, slowly working your way to a 1.1 multiplier', color=0x00ff00)
+    embed=discord.Embed(title="Gang Member Ascending", url="https://i.ibb.co/LSbWqj0/Bitburner-Logo.png", description='General rule of thumb is to ascend when the ascension multiplier is at 1.6, slowly working your way to a 1.1 multiplier', color=0x00bc38)
     embed.set_author(name="Bitburner Help Bot ", icon_url="https://i.ibb.co/LSbWqj0/Bitburner-Logo.png")
     embed.set_thumbnail(url="https://i.ibb.co/LSbWqj0/Bitburner-Logo.png")
     await ctx.send(embed=embed)
 
 @bot.command()
 async def batch(ctx):
-    embed=discord.Embed(title="Batching Algorithms", url="https://i.ibb.co/LSbWqj0/Bitburner-Logo.png", description="Here's a link that gives an overview on batching within Bitburner - https://bitburner.readthedocs.io/en/latest/advancedgameplay/hackingalgorithms.html#batch-algorithms-hgw-hwgw-or-cycles", color=0x00ff00)
+    embed=discord.Embed(title="Batching Algorithms", url="https://i.ibb.co/LSbWqj0/Bitburner-Logo.png", description="Here's a link that gives an overview on batching within Bitburner - https://bitburner.readthedocs.io/en/latest/advancedgameplay/hackingalgorithms.html#batch-algorithms-hgw-hwgw-or-cycles", color=0x00bc38)
     embed.set_author(name="Bitburner Help Bot ", icon_url="https://i.ibb.co/LSbWqj0/Bitburner-Logo.png")
     embed.set_thumbnail(url="https://i.ibb.co/LSbWqj0/Bitburner-Logo.png")
     await ctx.send(embed=embed)
 
 @bot.command()
 async def bn3(ctx):
-    embed=discord.Embed(title="Bit Node 3 Startup Guide", url="https://i.ibb.co/LSbWqj0/Bitburner-Logo.png", description="Follow this link for a startup guide to corporations - <https://docs.google.com/document/d/e/2PACX-1vTzTvYFStkFjQut5674ppS4mAhWggLL5PEQ_IbqSRDDCZ-l-bjv0E6Uo04Z-UfPdaQVu4c84vawwq8E/pub>", color=0x00ff00)
+    embed=discord.Embed(title="Bit Node 3 Startup Guide", url="https://i.ibb.co/LSbWqj0/Bitburner-Logo.png", description="Follow this link for a startup guide to corporations - <https://docs.google.com/document/d/e/2PACX-1vTzTvYFStkFjQut5674ppS4mAhWggLL5PEQ_IbqSRDDCZ-l-bjv0E6Uo04Z-UfPdaQVu4c84vawwq8E/pub>", color=0x00bc38)
     embed.set_author(name="Bitburner Help Bot ", icon_url="https://i.ibb.co/LSbWqj0/Bitburner-Logo.png")
     embed.set_thumbnail(url="https://i.ibb.co/LSbWqj0/Bitburner-Logo.png")
     await ctx.send(embed=embed)
@@ -89,7 +89,7 @@ async def bn4(ctx):
 
 @bot.command()
 async def cores(ctx):
-    embed=discord.Embed(title="Cores", url="https://i.ibb.co/LSbWqj0/Bitburner-Logo.png", description='The effect of cores on scripts launched from "home"', color=0x00ff00)
+    embed=discord.Embed(title="Cores", url="https://i.ibb.co/LSbWqj0/Bitburner-Logo.png", description='The effect of cores on scripts launched from "home"', color=0x00bc38)
     embed.set_author(name="Bitburner Help Bot ", icon_url="https://i.ibb.co/LSbWqj0/Bitburner-Logo.png")
     embed.set_thumbnail(url="https://i.ibb.co/LSbWqj0/Bitburner-Logo.png")
     embed.add_field(name="Calculating the additive effect to grow and weaken scripts", value="((cores-1)/16) * 100 : or 6.25% increase per core", inline=False)
@@ -99,7 +99,7 @@ async def cores(ctx):
 
 @bot.command()
 async def escape(ctx):
-    embed=discord.Embed(title="Escape", url="https://i.ibb.co/LSbWqj0/Bitburner-Logo.png", description='How to "Find what you are looking for"', color=0x00ff00)
+    embed=discord.Embed(title="Escape", url="https://i.ibb.co/LSbWqj0/Bitburner-Logo.png", description='How to "Find what you are looking for"', color=0x00bc38)
     embed.set_author(name="Bitburner Help Bot ", icon_url="https://i.ibb.co/LSbWqj0/Bitburner-Logo.png")
     embed.set_thumbnail(url="https://i.ibb.co/LSbWqj0/Bitburner-Logo.png")
     embed.add_field(name="Step 1", value='||Purchase The "Special Aug" from an end-game faction and install augs||', inline=False)
@@ -109,7 +109,7 @@ async def escape(ctx):
 
 @bot.command()
 async def favor(ctx):
-    embed=discord.Embed(title="Earning Favor", url="https://i.ibb.co/LSbWqj0/Bitburner-Logo.png", description="Here's a few different ways to earn favor", color=0x00ff00)
+    embed=discord.Embed(title="Earning Favor", url="https://i.ibb.co/LSbWqj0/Bitburner-Logo.png", description="Here's a few different ways to earn favor", color=0x00bc38)
     embed.set_author(name="Bitburner Help Bot ", icon_url="https://i.ibb.co/LSbWqj0/Bitburner-Logo.png")
     embed.set_thumbnail(url="https://i.ibb.co/LSbWqj0/Bitburner-Logo.png")
     embed.add_field(name="Export Save", value="You can get 1 every 24 hours by backing up your save via the Augments tab in-game", inline=False)
@@ -121,7 +121,7 @@ async def favor(ctx):
 
 @bot.command()
 async def format(ctx):
-    embed=discord.Embed(title="How to format code blocks in Discord", url="https://i.ibb.co/LSbWqj0/Bitburner-Logo.png", description='This is how to formate code blocks', color=0x00ff00)
+    embed=discord.Embed(title="How to format code blocks in Discord", url="https://i.ibb.co/LSbWqj0/Bitburner-Logo.png", description='This is how to formate code blocks', color=0x00bc38)
     embed.set_author(name="Bitburner Help Bot ", icon_url="https://i.ibb.co/LSbWqj0/Bitburner-Logo.png")
     embed.set_thumbnail(url="https://i.ibb.co/LSbWqj0/Bitburner-Logo.png")
     embed.add_field(name="This:", value='\`\`\`js\nwhile (true) {\n ns.exec(my_script.js, "home");\n await ns.sleep(100);\n}\n\`\`\`', inline=False)
@@ -131,28 +131,28 @@ async def format(ctx):
 
 @bot.command()
 async def formulas(ctx):
-    embed=discord.Embed(title="Where to find the Formulas API", url="https://i.ibb.co/LSbWqj0/Bitburner-Logo.png", description="Click this link: <https://github.com/danielyxie/bitburner/blob/dev/markdown/bitburner.formulas.md>", color=0x00ff00)
+    embed=discord.Embed(title="Where to find the Formulas API", url="https://i.ibb.co/LSbWqj0/Bitburner-Logo.png", description="Click this link: <https://github.com/danielyxie/bitburner/blob/dev/markdown/bitburner.formulas.md>", color=0x00bc38)
     embed.set_author(name="Bitburner Help Bot ", icon_url="https://i.ibb.co/LSbWqj0/Bitburner-Logo.png")
     embed.set_thumbnail(url="https://i.ibb.co/LSbWqj0/Bitburner-Logo.png")
     await ctx.send(embed=embed)
 
 @bot.command()
 async def gang(ctx):
-    embed=discord.Embed(title="Where to find the Gangs API", url="https://i.ibb.co/LSbWqj0/Bitburner-Logo.png", description="Click this link: <https://github.com/danielyxie/bitburner/blob/master/markdown/bitburner.gang.md>", color=0x00ff00)
+    embed=discord.Embed(title="Where to find the Gangs API", url="https://i.ibb.co/LSbWqj0/Bitburner-Logo.png", description="Click this link: <https://github.com/danielyxie/bitburner/blob/master/markdown/bitburner.gang.md>", color=0x00bc38)
     embed.set_author(name="Bitburner Help Bot ", icon_url="https://i.ibb.co/LSbWqj0/Bitburner-Logo.png")
     embed.set_thumbnail(url="https://i.ibb.co/LSbWqj0/Bitburner-Logo.png")
     await ctx.send(embed=embed)
 
 @bot.command()
 async def inject(ctx):
-    embed=discord.Embed(title="How to Inject commands into the terminal", url="https://i.ibb.co/LSbWqj0/Bitburner-Logo.png", description="Click this link: <https://bitburner.readthedocs.io/en/latest/netscript/advancedfunctions/inject_html.html>", color=0x00ff00)
+    embed=discord.Embed(title="How to Inject commands into the terminal", url="https://i.ibb.co/LSbWqj0/Bitburner-Logo.png", description="Click this link: <https://bitburner.readthedocs.io/en/latest/netscript/advancedfunctions/inject_html.html>", color=0x00bc38)
     embed.set_author(name="Bitburner Help Bot ", icon_url="https://i.ibb.co/LSbWqj0/Bitburner-Logo.png")
     embed.set_thumbnail(url="https://i.ibb.co/LSbWqj0/Bitburner-Logo.png")
     await ctx.send(embed=embed)
 
 @bot.command()
 async def karma(ctx):
-    embed=discord.Embed(title="Here's how to find your Karma", url="https://i.ibb.co/LSbWqj0/Bitburner-Logo.png", description="You can find your Karma with the undocumented function ||`ns.heart.break()`||", color=0x00ff00)
+    embed=discord.Embed(title="Here's how to find your Karma", url="https://i.ibb.co/LSbWqj0/Bitburner-Logo.png", description="You can find your Karma with the undocumented function ||`ns.heart.break()`||", color=0x00bc38)
     embed.set_author(name="Bitburner Help Bot ", icon_url="https://i.ibb.co/LSbWqj0/Bitburner-Logo.png")
     embed.set_thumbnail(url="https://i.ibb.co/LSbWqj0/Bitburner-Logo.png")
     await ctx.send(embed=embed)
@@ -171,14 +171,14 @@ async def md(ctx, args):
 
 @bot.command()
 async def order(ctx):
-    embed=discord.Embed(title="Here's a Generalized Bit Node Order Guide", url="https://i.ibb.co/LSbWqj0/Bitburner-Logo.png", description="Click this link - <https://bitburner.readthedocs.io/en/latest/guidesandtips/recommendedbitnodeorder.html>", color=0x00ff00)
+    embed=discord.Embed(title="Here's a Generalized Bit Node Order Guide", url="https://i.ibb.co/LSbWqj0/Bitburner-Logo.png", description="Click this link - <https://bitburner.readthedocs.io/en/latest/guidesandtips/recommendedbitnodeorder.html>", color=0x00bc38)
     embed.set_author(name="Bitburner Help Bot ", icon_url="https://i.ibb.co/LSbWqj0/Bitburner-Logo.png")
     embed.set_thumbnail(url="https://i.ibb.co/LSbWqj0/Bitburner-Logo.png")
     await ctx.send(embed=embed)
 
 @bot.command()
 async def rep(ctx):
-    embed=discord.Embed(title="Different Ways to Earn Rep", url="https://i.ibb.co/LSbWqj0/Bitburner-Logo.png", description="Here's a list of the ways to earn reputation", color=0x00ff00)
+    embed=discord.Embed(title="Different Ways to Earn Rep", url="https://i.ibb.co/LSbWqj0/Bitburner-Logo.png", description="Here's a list of the ways to earn reputation", color=0x00bc38)
     embed.set_author(name="Bitburner Help Bot ",icon_url="https://i.ibb.co/LSbWqj0/Bitburner-Logo.png")
     embed.set_thumbnail(url="https://i.ibb.co/LSbWqj0/Bitburner-Logo.png")
     embed.add_field(name="Work at a Company", value="higher stats increase rep gain", inline=False)
@@ -193,7 +193,7 @@ async def rep(ctx):
 
 @bot.command()
 async def rss(ctx):
-    embed=discord.Embed(title="Resources Channel", url="https://i.ibb.co/LSbWqj0/Bitburner-Logo.png", description="Click this to see the suggested resources  - <#921223819375575050>", color=0x00ff00)
+    embed=discord.Embed(title="Resources Channel", url="https://i.ibb.co/LSbWqj0/Bitburner-Logo.png", description="Click this to see the suggested resources  - <#921223819375575050>", color=0x00bc38)
     embed.set_author(name="Bitburner Help Bot ", icon_url="https://i.ibb.co/LSbWqj0/Bitburner-Logo.png")
     embed.set_thumbnail(url="https://i.ibb.co/LSbWqj0/Bitburner-Logo.png")
     await ctx.send(embed=embed)
@@ -207,7 +207,7 @@ async def singularity(ctx):
 
 @bot.command()
 async def spoiler(ctx):
-    embed=discord.Embed(title="How to format Spoilers in Discord", url="https://i.ibb.co/LSbWqj0/Bitburner-Logo.png", description="This is how you format spoilers", color=0x00ff00)
+    embed=discord.Embed(title="How to format Spoilers in Discord", url="https://i.ibb.co/LSbWqj0/Bitburner-Logo.png", description="This is how you format spoilers", color=0x00bc38)
     embed.set_author(name="Bitburner Help Bot ", icon_url="https://i.ibb.co/LSbWqj0/Bitburner-Logo.png")
     embed.set_thumbnail(url="https://i.ibb.co/LSbWqj0/Bitburner-Logo.png")
     embed.add_field(name="This:", value="\|\|text\|\|", inline=False)
@@ -216,7 +216,7 @@ async def spoiler(ctx):
 
 @bot.command()
 async def startgang(ctx):
-    embed=discord.Embed(title="Gang Startup", url="https://i.ibb.co/LSbWqj0/Bitburner-Logo.png", description="How to start up a gang", color=0x00ff00)
+    embed=discord.Embed(title="Gang Startup", url="https://i.ibb.co/LSbWqj0/Bitburner-Logo.png", description="How to start up a gang", color=0x00bc38)
     embed.set_author(name="Bitburner Help Bot ", icon_url="https://i.ibb.co/LSbWqj0/Bitburner-Logo.png")
     embed.set_thumbnail(url="https://i.ibb.co/LSbWqj0/Bitburner-Logo.png")
     embed.add_field(name="While in BN 2.x", value="Join any gang related faction, then click 'Manage Gang'", inline=False)
@@ -227,7 +227,7 @@ async def startgang(ctx):
 
 @bot.command()
 async def stats(ctx):
-    embed=discord.Embed(title="Stats", url="https://i.ibb.co/LSbWqj0/Bitburner-Logo.png", description="Click this link for Insights custom stats script - <https://github.com/bitburner-official/bitburner-scripts/blob/master/custom-stats.js>", color=0x00ff00)
+    embed=discord.Embed(title="Stats", url="https://i.ibb.co/LSbWqj0/Bitburner-Logo.png", description="Click this link for Insights custom stats script - <https://github.com/bitburner-official/bitburner-scripts/blob/master/custom-stats.js>", color=0x00bc38)
     embed.set_author(name="Bitburner Help Bot ", icon_url="https://i.ibb.co/LSbWqj0/Bitburner-Logo.png")
     embed.set_thumbnail(url="https://i.ibb.co/LSbWqj0/Bitburner-Logo.png")
     await ctx.send(embed=embed)
