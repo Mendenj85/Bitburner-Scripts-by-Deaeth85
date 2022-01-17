@@ -117,7 +117,7 @@ async def on_message(message):
         message.content = '!guide ' + content[0]
         return await bot.process_commands(message)
     if content[0] not in commandDescriptions.keys():
-        return await message.channel.send("Command doesn't exist! type !help for a list of commands!")
+        return await message.channel.send("Command doesn't exist! Type `!help` for a list of commands!")
     await bot.process_commands(message)
 
 
