@@ -110,15 +110,6 @@ async def md(ctx, args):
     await ctx.channel.send("That page does not exist!")
 
 
-@bot.event
-async def on_message(message):
-    if not message.content.startswith(bot.command_prefix):
-        return
-    if len(message.content)==1:
-        return
-    if message.content[1:] not in bbList.keys():
-        return await message.channel.send("Command doesn't exist! type !help for a list of commands!")
-
 my_secret = os.environ['token']
 #keep_alive()
 bot.run(my_secret)
