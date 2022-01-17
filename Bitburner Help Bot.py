@@ -79,7 +79,7 @@ async def bn3(ctx):
 
 @bot.command()
 async def bn4(ctx):
-    embed=discord.Embed(title="Bit Node 4 Completion Info", url="https://i.ibb.co/LSbWqj0/Bitburner-Logo.png", description="The following is what you get for completing BN4 - ram multiplier applies to singularity based scripts only", color=0x00ff00)
+    embed=discord.Embed(title="Bit Node 4 Completion Info", url="https://i.ibb.co/LSbWqj0/Bitburner-Logo.png", description="The following is what you get for completing BN4 - ram multiplier applies to singularity based scripts only", color=0x00bc38)
     embed.set_author(name="Bitburner Help Bot ", icon_url="https://i.ibb.co/LSbWqj0/Bitburner-Logo.png")
     embed.set_thumbnail(url="https://i.ibb.co/LSbWqj0/Bitburner-Logo.png")
     embed.add_field(name="BN 4.1", value="All Singularities & 16x ram cost multiplier", inline=False)
