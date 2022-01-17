@@ -57,12 +57,16 @@ guideList = {
     'spoiler': "This is how you format spoilers:\n\|\|text\|\|\nWill turn into this:\n||text||", 
     'startgang': "You need -54k Karma to start a gang outside of BN2\nThis equates to 15 hours of 100% homicide\nSleeves can help reduce this time drastically", 
     'stats': "<https://github.com/bitburner-official/bitburner-scripts/blob/master/custom-stats.js>"
-} 
+}
+guideDirectory = os.getcwd()+'/guides/'
+fileList = [file.split('.')[0] for file in os.listdir(guideDirectory)]
 
 
 @bot.command()
 async def guide(ctx, arg=""):
-    await ctx.channel.send(guideList[arg])
+    file = open(guideDirectory+arg+'.txt','r')
+    contents = '\n'.join(file.read().splitlines()[2:])
+    await ctx.channel.send(contents)
 @bot.event
 async def on_ready():
     print('We have logged in as {0.user}'.format(bot))
@@ -113,7 +117,7 @@ async def on_message(message):
         return
     if len(message.content)==1:
         return
-    if content[0] in guideList.keys():
+    if content[0] in fileList:
         message.content = '!guide ' + content[0]
         return await bot.process_commands(message)
     if content[0] not in commandDescriptions.keys():
