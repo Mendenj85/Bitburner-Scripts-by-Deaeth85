@@ -122,7 +122,8 @@ async def on_message(message):
         return
     if content[0] in bbList.keys():
         message.content = '!bb ' + content[0]
-    elif content[0] not in commandList.keys():
+        return await bot.process_commands(message)
+    if content[0] not in commandList.keys():
         return await message.channel.send("Command doesn't exist! type !help for a list of commands!")
     await bot.process_commands(message)
 
