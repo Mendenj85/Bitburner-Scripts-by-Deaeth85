@@ -63,12 +63,7 @@ guideDescriptions = {
     }
 @bot.command()
 async def guide(ctx, arg=""):
-    if arg == "":
-        return await ctx.channel.send("Usage: !guide <arg>\nAvailable arg list: `{availableArgs}`".format(availableArgs = ', '.join(guideList.keys())))
-    if arg in guideList.keys():
-        await ctx.channel.send(guideList[arg])
-    else:
-        await ctx.channel.send('This guide doesn\'t currently exist!');
+    await ctx.channel.send(guideList[arg])
 @bot.event
 async def on_ready():
     print('We have logged in as {0.user}'.format(bot))
