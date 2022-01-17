@@ -1,6 +1,6 @@
 import discord
 import os
-from keep_alive import keep_alive
+#from keep_alive import keep_alive
 from discord.ext import commands
 from github import Github
 
@@ -8,7 +8,7 @@ g = Github()
 repo = g.get_repo("danielyxie/bitburner")
 contents = repo.get_contents("markdown")
 paths = [x.path for x in contents if x.path != "markdown/index.md"]
-
+paths.sort(key=lambda x: len(x))
 bot = commands.Bot(command_prefix='!',help_command=None)
 
 commandList = {
@@ -34,6 +34,18 @@ commandList = {
     'stats':'Link to Insights custom stats script',    
 }
 
+guideList = {
+    'ascend':"General rule of thumb is to ascend when the ascension multiplier is at 1.6, slowly working your way to a 1.1 multiplier"
+}
+
+@bot.command()
+async def guide(ctx, arg=""):
+    if arg == "":
+        return await ctx.channel.send("Usage: !guide <arg>")
+    if arg in guideList.keys():
+        await ctx.channel.send(guideList[arg])
+    else:
+        await ctx.channel.send('This guide doesn\'t currently exist!');
 @bot.event
 async def on_ready():
     print('We have logged in as {0.user}'.format(bot))
@@ -145,5 +157,5 @@ async def stats(ctx):
     await ctx.channel.send("<https://github.com/bitburner-official/bitburner-scripts/blob/master/custom-stats.js>")
 
 my_secret = os.environ['token']
-keep_alive()
+#keep_alive()
 bot.run(my_secret)
