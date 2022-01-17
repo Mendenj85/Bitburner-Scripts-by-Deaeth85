@@ -15,7 +15,6 @@ bot = commands.Bot(command_prefix='!',help_command=None)
 commandList = {
     'help':'Displays possible commands (wow what a shocker)',
     'md':'<arg> Link to Bitburner Markdown pages based on the args you supply',
-    'bb':'<arg> Sends a guide for given arg'
 }
 
     
@@ -84,8 +83,8 @@ async def help(ctx,args=""):
         stringBuilder = ''
         for key in commandList:
             stringBuilder += '!{command} - {description}\n'.format(command=key,description=commandList[key])
-            
-        stringBuilder += 'Available args for !bb:\n`{possibleArgs}`'.format(possibleArgs = ', '.join(bbDescriptions))
+        for key in bbList:
+            stringBuilder += '!{command} - {description}\n'.format(command=key,description=bbList[key]);
         
         stringBuilder += '\nIf you have any ideas for other commands that could be added, please submit a PR on the git-hub'
         await ctx.author.send(stringBuilder)
