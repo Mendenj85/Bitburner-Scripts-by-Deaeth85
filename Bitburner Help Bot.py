@@ -143,6 +143,15 @@ async def startgang(ctx):
 @bot.command()
 async def stats(ctx):
     await ctx.channel.send("<https://github.com/bitburner-official/bitburner-scripts/blob/master/custom-stats.js>")
+    
+@bot.event
+async def on_message(message):
+    if not message.content.startswith(bot.command_prefix):
+        return
+    if len(message.content)==1:
+        return
+    if message.content[1:] not in bbList.keys():
+        return await message.channel.send("Command doesn't exist! type !help for a list of commands!")
 
 my_secret = os.environ['token']
 keep_alive()
