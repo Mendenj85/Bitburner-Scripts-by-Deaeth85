@@ -1,7 +1,7 @@
 import discord
 import os
 #used to keep bot alive due to repl.it's 1 hour no use timeout feature
-from keep_alive import keep_alive
+#from keep_alive import keep_alive
 from discord.ext import commands
 from github import Github
 
@@ -110,15 +110,18 @@ async def bn4(ctx):
     help='Link to all of the Bitburner Markdown pages based on args you supply'
     )
 #Code to be able to pull any page from the Markdown git-hub of the game
-async def markdown(ctx, args):
+async def md(ctx, args):
     userInput = args
+    linkList = []
     for path in paths:
         function = path.split('.')[-2]
         if userInput.lower() == function:
-          return await ctx.channel.send("<https://github.com/danielyxie/bitburner/blob/dev/" + path +">")
+            linkList.append("<https://github.com/danielyxie/bitburner/blob/dev/" + path +">\n")
     #return an error if page doesn't exist
+    if(len(linkList) > 0):
+        return await ctx.channel.send(''.join(linkList))
     await ctx.channel.send("That page does not exist!")
 
 my_secret = os.environ['token']
-keep_alive()
+#keep_alive()
 bot.run(my_secret)
