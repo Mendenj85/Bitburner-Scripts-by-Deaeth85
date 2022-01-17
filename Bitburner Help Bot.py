@@ -1,6 +1,6 @@
 import discord
 import os
-from keep_alive import keep_alive
+#from keep_alive import keep_alive
 from discord.ext import commands
 from github import Github
 
@@ -150,9 +150,9 @@ async def on_message(message):
         return
     if len(message.content)==1:
         return
-    if message.content[1:] not in bbList.keys():
+    if message.content[1:] not in commandList.keys():
         return await message.channel.send("Command doesn't exist! type !help for a list of commands!")
 
 my_secret = os.environ['token']
-keep_alive()
+#keep_alive()
 bot.run(my_secret)
