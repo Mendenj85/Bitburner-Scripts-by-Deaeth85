@@ -84,7 +84,7 @@ async def help(ctx,args=""):
         for key in commandList:
             stringBuilder += '!{command} - {description}\n'.format(command=key,description=commandList[key])
             
-        stringBuilder += 'Available guide args:\n`{possibleArgs}`'.format(possibleArgs = ', '.join(bbDescriptions))
+        stringBuilder += 'Available args for !bb:\n`{possibleArgs}`'.format(possibleArgs = ', '.join(bbDescriptions))
         
         stringBuilder += '\nIf you have any ideas for other commands that could be added, please submit a PR on the git-hub'
         await ctx.author.send(stringBuilder)
