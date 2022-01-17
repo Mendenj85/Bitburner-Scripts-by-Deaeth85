@@ -98,7 +98,9 @@ async def help(ctx,args=""):
             await ctx.channel.send("Command doesn't exist!")
             
 @bot.command()
-async def md(ctx, args):
+async def md(ctx, args=""):
+    if args == "":
+        return await ctx.channel.send("Usage: !md <arg>")
     userInput = args
     linkList = []
     for path in paths:
