@@ -9,7 +9,7 @@ repo = g.get_repo("danielyxie/bitburner")
 contents = repo.get_contents("markdown")
 paths = [x.path for x in contents if x.path != "markdown/index.md"]
 
-bot = commands.Bot(command_prefix='!',help_command=None)
+bot = commands.Bot(command_prefix='!',help_command=None,self_bot=False)
 
 commandList = {
     'ascend':'General advice on when to ascend gang members',
@@ -22,6 +22,7 @@ commandList = {
     'format':'shows how to format .js code in Discord',
     'formulas':'Link to basic Formulas API',
     'gang':'Link to Bitburner Markdown Gang Interface page',
+    'help':'Displays list of available commands',
     'inject':'Link to Injecting HTML from Advanced Gameplay in "Read The Docs',
     'karma':'Shows the undocumented function as a spoiler',
     'md':'<arg> Link to Bitburner Markdown pages based on the args you supply',
@@ -105,7 +106,9 @@ async def karma(ctx):
     await ctx.channel.send("You can find your Karma with the undocumented function ||`ns.heart.break()`||")
 
 @bot.command()
-async def md(ctx, args):
+async def md(ctx, args=""):
+    if args == "":
+        return await ctx.channel.send("Usage: !md <arg>")
     userInput = args
     linkList = []
     for path in paths:
@@ -143,6 +146,19 @@ async def startgang(ctx):
 @bot.command()
 async def stats(ctx):
     await ctx.channel.send("<https://github.com/bitburner-official/bitburner-scripts/blob/master/custom-stats.js>")
+    
+@bot.event
+async def on_message(message):
+    content = message.content[1:].split(' ')
+    if message.author == bot.user:
+        return
+    if not message.content.startswith(bot.command_prefix):
+        return
+    if len(message.content)==1:
+        return
+    if content[0] not in commandList.keys():
+        return await message.channel.send("Command doesn't exist! type !help for a list of commands!")
+    await bot.process_commands(message)
 
 my_secret = os.environ['token']
 keep_alive()
