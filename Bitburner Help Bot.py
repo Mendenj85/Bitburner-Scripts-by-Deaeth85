@@ -106,7 +106,9 @@ async def karma(ctx):
     await ctx.channel.send("You can find your Karma with the undocumented function ||`ns.heart.break()`||")
 
 @bot.command()
-async def md(ctx, args):
+async def md(ctx, args=""):
+    if args == "":
+        return await ctx.channel.send("Usage: !md <arg>")
     userInput = args
     linkList = []
     for path in paths:
@@ -147,13 +149,14 @@ async def stats(ctx):
     
 @bot.event
 async def on_message(message):
+    content = message.content[1:].split(' ')
     if message.author == bot.user:
         return
     if not message.content.startswith(bot.command_prefix):
         return
     if len(message.content)==1:
         return
-    if message.content[1:] not in commandList.keys():
+    if content[0] not in commandList.keys():
         return await message.channel.send("Command doesn't exist! type !help for a list of commands!")
     await bot.process_commands(message)
 
