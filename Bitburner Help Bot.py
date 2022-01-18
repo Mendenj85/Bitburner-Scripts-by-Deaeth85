@@ -89,12 +89,12 @@ async def bn4(ctx):
 
 @bot.command()
 async def cores(ctx):
-    embed=discord.Embed(title="Cores", url="https://i.ibb.co/LSbWqj0/Bitburner-Logo.png", description='The effect of cores on scripts launched from "home"', color=0x00bc38)
+    embed=discord.Embed(title="Cores", url="https://i.ibb.co/LSbWqj0/Bitburner-Logo.png", description='The effect of cores on grow and weaken scripts', color=0x00bc38)
     embed.set_author(name="Bitburner Help Bot ", icon_url="https://i.ibb.co/LSbWqj0/Bitburner-Logo.png")
     embed.set_thumbnail(url="https://i.ibb.co/LSbWqj0/Bitburner-Logo.png")
     embed.add_field(name="Calculating the additive effect to grow and weaken scripts", value="((cores-1)/16) * 100 : or 6.25% increase per core", inline=False)
     embed.add_field(name="Effect on timings", value="no effect", inline=False)
-    embed.add_field(name="Servers affected", value='only "home"', inline=False)
+    embed.add_field(name="Servers affected", value='only "home" and Endgame: ||hacknet servers||', inline=False)
     await ctx.send(embed=embed)
 
 @bot.command()
