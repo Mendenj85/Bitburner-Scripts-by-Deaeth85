@@ -95,6 +95,7 @@ async def cores(ctx):
     embed.add_field(name="Calculating the additive effect to grow and weaken scripts", value="((cores-1)/16) * 100 : or 6.25% increase per core", inline=False)
     embed.add_field(name="Effect on timings", value="no effect", inline=False)
     embed.add_field(name="Servers affected", value='only "home" and Endgame: ||hacknet servers||', inline=False)
+    embed.set_footer(text='Only works on mentioned server(s) as all other servers only have one core')
     await ctx.send(embed=embed)
 
 @bot.command()
