@@ -104,6 +104,7 @@ async def escape(ctx):
     embed.set_thumbnail(url="https://i.ibb.co/LSbWqj0/Bitburner-Logo.png")
     embed.add_field(name="Step 1", value='||Purchase The "Special Aug" from an end-game faction and install augs||', inline=False)
     embed.add_field(name="Step 2", value='||Look "around" the cave to find what you are looking for||', inline=False)
+    embed.add_field(name="Step 2.5 - if you're still lost", value='||The "cave" is generally found deep in the network beyond `scan-analyze 10` range||')
     embed.add_field(name="Step 3", value="If you are still lost, maybe this clue from Zea might help - https://discord.com/channels/415207508303544321/415207923506216971/929207305612951592'", inline=False)
     await ctx.send(embed=embed)
 
