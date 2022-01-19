@@ -23,9 +23,10 @@ commandList = {
     'formulas': 'Link to basic Formulas API',
     'gang': 'Link to Bitburner Markdown Gang Interface page',
     'inject': 'Link to Injecting HTML from Advanced Gameplay in "Read The Docs',
-    'karma': 'Shows the undocumented function as a spoiler',
-    'md': '<arg> Link to Bitburner Markdown pages based on the args you supply',
-    'order': 'Pulls the Recommended Bit Node Order page from "Read The Docs"',
+    'karma':'Shows the undocumented function as a spoiler',
+    'md':'<arg> Link to Bitburner Markdown pages based on the args you supply',
+    'ns': 'same as md, for those who prefer ns over md',
+    'order':'Pulls the Recommended Bit Node Order page from "Read The Docs"',
     'rep': 'Gives a list of ways to earn rep',
     'rss': 'Link to #resources channel in Bitburner Discord',
     'singularity': 'Link to Bitburner Markdown Singularity page',
@@ -230,7 +231,20 @@ async def md(ctx, args):
         return await ctx.channel.send(''.join(linkList))
     await ctx.channel.send("That page does not exist!")
 
+    
+@bot.command()
+async def ns(ctx, args):
+    userInput = args
+    linkList = []
+    for path in paths:
+        function = path.split('.')[-2]
+        if userInput.lower() == function:
+          linkList.append("<https://github.com/danielyxie/bitburner/blob/dev/" + path +">\n")
+    if(len(linkList) > 0):
+        return await ctx.channel.send(''.join(linkList))
+    await ctx.channel.send("That page does not exist!")    
 
+    
 @bot.command()
 async def order(ctx):
     embed = discord.Embed(title="Here's a Generalized Bit Node Order Guide", url="https://i.ibb.co/LSbWqj0/Bitburner-Logo.png",
