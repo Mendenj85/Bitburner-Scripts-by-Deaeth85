@@ -29,6 +29,7 @@ commandList = {
     'rep': 'Gives a list of ways to earn rep',
     'rss': 'Link to #resources channel in Bitburner Discord',
     'singularity': 'Link to Bitburner Markdown Singularity page',
+    'source': 'Link to source code for the bot',
     'spoiler': 'Shows how to format spoilers for text in Discord',
     'startgang': 'Tells the requirments to start a gang outside of BN2',
     'stats': 'Link to Insights custom stats script',
@@ -285,6 +286,12 @@ async def singularity(ctx):
     embed.set_thumbnail(url="https://i.ibb.co/LSbWqj0/Bitburner-Logo.png")
     await ctx.send(embed=embed)
 
+@bot.command()
+async def source(ctx):
+    embed=discord.Embed(title="Bitburner Help Bot Source Code", url="https://i.ibb.co/LSbWqj0/Bitburner-Logo.png", description="Click this link - <https://github.com/Mendenj85/Bitburner-Scripts-by-Deaeth85/blob/main/Bitburner%20Help%20Bot.py>", color=0x00ff00)
+    embed.set_author(name="Bitburner Help Bot ", icon_url="https://i.ibb.co/LSbWqj0/Bitburner-Logo.png")
+    embed.set_thumbnail(url="https://i.ibb.co/LSbWqj0/Bitburner-Logo.png")
+    await ctx.send(embed=embed)
 
 @bot.command()
 async def spoiler(ctx):
