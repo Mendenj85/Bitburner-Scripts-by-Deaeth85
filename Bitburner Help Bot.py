@@ -218,7 +218,7 @@ async def karma(ctx):
     await ctx.send(embed=embed)
 
 
-@bot.command()
+@bot.command(aliases=['ns'])
 async def md(ctx, args):
     userInput = args
     linkList = []
@@ -230,19 +230,6 @@ async def md(ctx, args):
     if(len(linkList) > 0):
         return await ctx.channel.send(''.join(linkList))
     await ctx.channel.send("That page does not exist!")
-
-    
-@bot.command()
-async def ns(ctx, args):
-    userInput = args
-    linkList = []
-    for path in paths:
-        function = path.split('.')[-2]
-        if userInput.lower() == function:
-          linkList.append("<https://github.com/danielyxie/bitburner/blob/dev/" + path +">\n")
-    if(len(linkList) > 0):
-        return await ctx.channel.send(''.join(linkList))
-    await ctx.channel.send("That page does not exist!")    
 
     
 @bot.command()
