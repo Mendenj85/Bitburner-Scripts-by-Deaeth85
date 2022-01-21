@@ -220,13 +220,26 @@ async def karma(ctx):
 
 @bot.command(aliases=['ns'])
 async def md(ctx, args):
+    linkPrefix = "<https://github.com/danielyxie/bitburner/blob/dev/"
+    linkPostfix = ">\n"
     userInput = args
+    userInputArray = userInput.lower().split('.')
     linkList = []
-    for path in paths:
-        function = path.split('.')[-2]
-        if userInput.lower() == function:
-            linkList.append(
-                "<https://github.com/danielyxie/bitburner/blob/dev/" + path + ">\n")
+    if len(userInputArray) > 1:
+        for path in paths:
+            pathArray = path.split('.')
+            if len(pathArray) == 2: # We already know it's more than 1, and the followin IF works if it's 3 or more
+                continue
+            if userInputArray[-2] == pathArray[-3] and userInputArray[-1] == pathArray[-2]:
+                linkList.append(
+                    linkPrefix + path + linkPostfix)
+    else:
+        for path in paths:
+            pathArray = path.split('.')
+            function = pathArray[-2]
+            if userInputArray[0] == function:
+                linkList.append(
+                    linkPrefix + path + linkPostfix)
     if(len(linkList) > 0):
         return await ctx.channel.send(''.join(linkList))
     await ctx.channel.send("That page does not exist!")
