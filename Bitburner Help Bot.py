@@ -47,14 +47,15 @@ async def on_ready():
 
 @bot.command()
 async def help(ctx, args=""):
-
+    
     if args == "":
         stringBuilder = ''
         for key in commandList:
             stringBuilder += '!{command} - {description}\n'.format(
                 command=key, description=commandList[key])
         stringBuilder += '\nIf you have any ideas for other commands that could be added, please submit a PR on the git-hub'
-        await ctx.author.send(stringBuilder)
+        embed = discord.Embed(title="Command list",description=stringBuilder)
+        await ctx.author.send(embed=embed)
     else:
         if args in commandList.keys():
             await ctx.channel.send("{command} - {description}".format(command=args, description=commandList[args]))
@@ -342,7 +343,7 @@ async def on_message(message):
         return
     if len(message.content)==1:
         return
-    if content[0] not in commandList.keys():
+    if content[0] not in commandList.keys() and content[0] != 'help':
         return await message.channel.send("Command doesn't exist! Type `!help` for a list of commands!")
     await bot.process_commands(message)
 
