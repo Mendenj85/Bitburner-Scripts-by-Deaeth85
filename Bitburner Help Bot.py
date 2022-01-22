@@ -32,10 +32,10 @@ commandList = {
     'singularity': 'Link to Bitburner Markdown Singularity page',
     'source': 'Link to source code for the bot',
     'spoiler': 'Shows how to format spoilers for text in Discord',
+    'stanek': 'PM\'s the user with the basics of starting BN13',
     'startgang': 'Tells the requirments to start a gang outside of BN2',
     'stats': 'Link to Insights custom stats script',
 }
-
 
 @bot.event
 async def on_ready():
@@ -305,6 +305,19 @@ async def spoiler(ctx):
     embed.add_field(name="This:", value="\|\|text\|\|", inline=False)
     embed.add_field(name="Turns into:", value="||text||", inline=False)
     await ctx.send(embed=embed)
+
+@bot.command()
+async def stanek(ctx):
+  embed = discord.Embed(title="Basics of Bit Node 13 (Stanek's Gift)", url="https://i.ibb.co/LSbWqj0/Bitburner-Logo.png", color=0x00bc38)
+  embed.set_author(name="Bitburner Help Bot ", icon_url="https://i.ibb.co/LSbWqj0/Bitburner-Logo.png")
+  embed.set_thumbnail(url="https://i.ibb.co/LSbWqj0/Bitburner-Logo.png")
+  embed.add_field(name="Where do I get Stanek's Gift?", value="Visit the [church] in Chongqing", inline=False)
+  embed.add_field(name="How do I charge fragments?", value="use `ns.stanek.charge(x,y)`", inline=False)
+  embed.add_field(name="How do I maximize fragment effects?", value="Each fragment keeps track of how many TIMES it has been charged, as well as the average number of THREADS used to charge it.  The number of THREADS is much more important than the number of TIMES it has been charged.  Generally you only want to use your biggest server (and the biggest number of threads possible) to charge the fragment.  The TIMES and THREADS count are set to 0 when you remove a fragment from the gift, when you soft reset, or when you install augmentations", inline=False)
+  embed.add_field(name="How do I reduce stat penalties?", value="Two additional augmentations are available from the Church of the Machine God faction.  The first reduces the penalties from 10% -> 5% and requires 1 million faction reputation.  The second reduces the penalties from 5% -> 0% and costs 100 million faction reputation", inline=False)
+  embed.add_field(name="How do I gain Church of the Machine God rep?", value="Every time you charge Stanek's gift, you gain reputation.  The more threads you use, the more reputation you gain", inline=False)
+  embed.add_field(name="How long does it take to charge a fragment?", value="Although there is no method to get this time (yet), the times are hard-coded into the charge function: 1000ms regularly, and 200ms in catchup time", inline=False)
+  await ctx.author.send(embed=embed)
 
 
 @bot.command()
