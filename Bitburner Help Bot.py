@@ -332,6 +332,19 @@ async def stats(ctx):
                      icon_url="https://i.ibb.co/LSbWqj0/Bitburner-Logo.png")
     embed.set_thumbnail(url="https://i.ibb.co/LSbWqj0/Bitburner-Logo.png")
     await ctx.send(embed=embed)
+    
+@bot.event
+async def on_message(message):
+    content = message.content[1:].split(' ')
+    if message.author == bot.user:
+        return
+    if not message.content.startswith(bot.command_prefix):
+        return
+    if len(message.content)==1:
+        return
+    if content[0] not in commandList.keys():
+        return await message.channel.send("Command doesn't exist! Type `!help` for a list of commands!")
+    await bot.process_commands(message)
 
 my_secret = os.environ['token']
 keep_alive()
