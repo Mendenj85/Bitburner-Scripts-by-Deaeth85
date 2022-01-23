@@ -124,7 +124,6 @@ async def md(ctx, args=""):
         nameSpace = userInput.lower().split('.')[0]
         functionName = userInput.lower().split('.')[1]
         for path in paths:
-            print(path)
             function = path.split('.')[-2]
             if functionName == function and path.split('.')[-3] == nameSpace:
                 if spoilersAllowed or nameSpace == 'ns':
