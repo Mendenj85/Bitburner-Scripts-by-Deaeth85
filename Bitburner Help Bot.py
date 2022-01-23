@@ -91,8 +91,9 @@ async def help(ctx, args=""):
             await ctx.channel.send("{command} - {description}".format(command=args,description=commandDescriptions[args]))
         elif args in fileList:
             file = open(guideDirectory+args+'.txt','r')
-            argDescription = file.read().splitlines()[0]
-            content = file.read().splitlines()[3:]
+            fileContents = file.read().splitlines()
+            argDescription = fileContents[0]
+            content = fileContents[3:]
             if(len(''.join(content)) > 600):
                 await ctx.channel.send("{args} - {description} (Will pm user)".format(args=args,description=argDescription))
             else:
