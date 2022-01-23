@@ -62,7 +62,7 @@ async def guide(ctx, arg=""):
         
     embed.set_author(name=botName, icon_url=botUrl)
     embed.set_thumbnail(url=botUrl)
-    if(len(''.join(content)) > 600):
+    if(len(''.join(content)) > 600): #Check if guide's character count exceeds 600
         return await ctx.author.send(embed=embed)
     return await ctx.channel.send(embed=embed)
 
@@ -110,11 +110,12 @@ async def md(ctx, args=""):
         return await ctx.channel.send("Usage: !md <arg>")
     userInput = args
     linkList = []
-    
+    #Check if user wants namespace specific function
     if '.' not in userInput:
         for path in paths:
             function = path.split('.')[-2]
             if userInput.lower() == function:
+                #Spoiler links if spoilers aren't allowed (except ns functions)
                 if spoilersAllowed or path.split('.')[-3] == 'ns':
                     linkList.append("<https://github.com/danielyxie/bitburner/blob/dev/" + path +">\n")
                 else: linkList.append("ENDGAME SPOILER: ||<https://github.com/danielyxie/bitburner/blob/dev/" + path +">||\n")
