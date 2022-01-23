@@ -1,4 +1,4 @@
 Link to Insights custom stats script
-Link to stats made by Insight
+Link to stats script made by Insight
 
 Click this link for Insights custom stats script - <https://github.com/bitburner-official/bitburner-scripts/blob/master/custom-stats.js>
