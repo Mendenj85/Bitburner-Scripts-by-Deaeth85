@@ -61,7 +61,6 @@ async def guide(ctx, arg=""):
         embed.description = '\n'.join(content)
         
     embed.set_author(name=botName, icon_url=botUrl)
-    embed.set_thumbnail(url=botUrl)
     if(len(''.join(content)) > 600): #Check if guide's character count exceeds 600
         return await ctx.author.send(embed=embed)
     return await ctx.channel.send(embed=embed)
@@ -85,7 +84,6 @@ async def help(ctx, args=""):
         stringBuilder += '\nIf you have any ideas for other commands that could be added, please submit a PR on the git-hub'
         embed = discord.Embed(title="Command list",description=stringBuilder, url = botUrl,color=0x00bc38)
         embed.set_author(name=botName, icon_url=botUrl)
-        embed.set_thumbnail(url=botUrl)
         await ctx.author.send(embed=embed)
         
     else:
