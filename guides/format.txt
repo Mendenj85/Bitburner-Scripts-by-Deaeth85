@@ -1,10 +1,12 @@
 shows how to format .js code in Discord
+How to format code blocks in Discord
 
-This:
+This is how to format code blocks
+{FIELD}This:
 \`\`\`js
 await ns.sleep(100);
 \`\`\`
-Turns into this:
+{FIELD}Turns into this:
 ```js
 await ns.sleep(100)
 ```

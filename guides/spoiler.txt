@@ -1,6 +1,7 @@
 Shows how to format spoilers for text in Discord
+How to format Spoilers in Discord
 
-This is how you format spoilers:
-\|\|text\|\|
-Will turn into this:
-||text||
+{FIELD}This:
+\|\|made you look\|\|
+{FIELD}Turns into:
+||made you look||

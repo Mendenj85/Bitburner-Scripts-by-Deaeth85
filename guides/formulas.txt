@@ -1,3 +1,4 @@
 Link to basic Formulas API
+Where to find the Formulas API
 
-<https://github.com/danielyxie/bitburner/blob/dev/markdown/bitburner.formulas.md>
+Click this link: <https://github.com/danielyxie/bitburner/blob/dev/markdown/bitburner.formulas.md>

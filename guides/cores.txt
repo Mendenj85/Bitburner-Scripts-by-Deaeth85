@@ -1,5 +1,10 @@
 Gives a description of what core upgrades do
+Cores
 
-(cores-1)/16 additive effect to grow/weaken
-Timings don't change
-Only works on 'home' server
+The effect of cores on grow and weaken scripts
+{FIELD}Calculating the additive effect to grow and weaken scripts
+((cores-1)/16) * 100 : or 6.25% increase per core
+{FIELD}Effect on timings
+no effect
+{FIELD}Servers affected
+only "home" and Endgame: ||hacknet servers||

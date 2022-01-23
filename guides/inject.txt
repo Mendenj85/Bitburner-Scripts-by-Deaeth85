@@ -1,3 +1,4 @@
 Link to Injecting HTML from Advanced Gameplay in "Read The Docs
+How to Inject commands into the terminal
 
-<https://bitburner.readthedocs.io/en/latest/netscript/advancedfunctions/inject_html.html>
+Click this link: <https://bitburner.readthedocs.io/en/latest/netscript/advancedfunctions/inject_html.html>

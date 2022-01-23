@@ -1,0 +1,4 @@
+Link to source code for the bot
+Bitburner Help Bot Source code
+
+Click this link - <https://github.com/Mendenj85/Bitburner-Scripts-by-Deaeth85/blob/main/Bitburner%20Help%20Bot.py>

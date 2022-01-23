@@ -1,3 +1,4 @@
 Pulls a startup guide written by Angr for BN3(Corps)
+BitNode 3 Startup Guide
 
 Follow this link for a startup guide to corporations - <https://docs.google.com/document/d/e/2PACX-1vTzTvYFStkFjQut5674ppS4mAhWggLL5PEQ_IbqSRDDCZ-l-bjv0E6Uo04Z-UfPdaQVu4c84vawwq8E/pub>
