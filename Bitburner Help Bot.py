@@ -1,6 +1,6 @@
 import discord
 import os
-from keep_alive import keep_alive
+#from keep_alive import keep_alive
 from discord.ext import commands
 from github import Github
 g = Github()
@@ -91,5 +91,5 @@ async def on_message(message):
 
 
 my_secret = os.environ['token']
-keep_alive()
+#keep_alive()
 bot.run(my_secret)
