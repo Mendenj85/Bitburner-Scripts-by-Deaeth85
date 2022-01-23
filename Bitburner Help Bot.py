@@ -100,7 +100,7 @@ async def help(ctx, args=""):
         else:
             await ctx.channel.send("Command doesn't exist!")
             
-@bot.command()
+@bot.command(aliases=['ns'])
 async def md(ctx, args=""):
     allowedSpoilerList = ["endgame","help","coding-contract"]
     spoilersAllowed = False
