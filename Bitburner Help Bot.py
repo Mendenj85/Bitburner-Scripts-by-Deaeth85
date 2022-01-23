@@ -54,8 +54,11 @@ async def guide(ctx, arg=""):
             
     embed = discord.Embed(title=embedTitle, url=botUrl)
     #for every {FIELD} add an embed field with the corresponding value
-    for index in range(len(fieldTitles)):
-        embed.add_field(name=fieldTitles[index][0],value=fieldValues[index],inline=False)
+    if len(fieldTitles) > 0:
+        for index in range(len(fieldTitles)):
+            embed.add_field(name=fieldTitles[index][0],value=fieldValues[index],inline=False)
+    else:
+        embed.description = ''.join(content)
         
     embed.set_author(name=botName, icon_url=botUrl)
     embed.set_thumbnail(url=botUrl)
@@ -76,6 +79,7 @@ async def help(ctx, args=""):
             fileContent = guideContents[guide].splitlines()
             description = fileContent[0]
             stringBuilder += f"**!{name}** - {description}\n"
+            
         stringBuilder += '\nIf you have any ideas for other commands that could be added, please submit a PR on the git-hub'
         embed = discord.Embed(title="Command list",description=stringBuilder, url = botUrl)
         embed.set_author(name=botName, icon_url=botUrl)
