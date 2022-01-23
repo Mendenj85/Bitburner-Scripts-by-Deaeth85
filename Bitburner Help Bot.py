@@ -17,10 +17,12 @@ commandDescriptions = {
     'help':'Displays possible commands (wow what a shocker)',
     'md':'<arg> Link to Bitburner Markdown pages based on the args you supply',
     'ns':'<arg> Link to Bitburner Markdown pages based on the args you supply',
+
 }
 guideDirectory = os.getcwd()+'/guides/'
 #Get list of files for guides without the extension
 fileList = [os.path.splitext(file)[0] for file in os.listdir(guideDirectory)]
+
 
 guideContents = {}
 for guide in os.listdir(guideDirectory):
@@ -64,7 +66,6 @@ async def guide(ctx, arg=""):
     if(len(''.join(content)) > 600): #Check if guide's character count exceeds 600
         return await ctx.author.send(embed=embed)
     return await ctx.channel.send(embed=embed)
-
 
 @bot.command()
 async def help(ctx, args=""):
@@ -135,14 +136,13 @@ async def md(ctx, args=""):
         return await ctx.channel.send(''.join(linkList))
     await ctx.channel.send("That page does not exist!")
     
-    
 @bot.event
 async def on_ready():
     print('We have logged in as {0.user}'.format(bot))
     activity = discord.Activity(name="!help || Possible Spoilers", type=3)
     await bot.change_presence(status=discord.Status.online, activity=activity)
     print("Bot is ready!")
-
+    
 @bot.event
 async def on_message(message):
     content = message.content[1:].split(' ')
