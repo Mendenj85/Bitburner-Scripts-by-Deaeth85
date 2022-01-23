@@ -61,7 +61,7 @@ async def md(ctx, args=""):
     for path in paths:
         function = path.split('.')[-2]
         if userInput.lower() == function:
-          linkList.append("<https://github.com/danielyxie/bitburner/blob/dev/" + path +">\n")
+            linkList.append("<https://github.com/danielyxie/bitburner/blob/dev/" + path +">\n")
     if(len(linkList) > 0):
         return await ctx.channel.send(''.join(linkList))
     await ctx.channel.send("That page does not exist!")
