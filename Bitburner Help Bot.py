@@ -1,6 +1,6 @@
-import discord
 import os
-#from keep_alive import keep_alive
+import discord
+from keep_alive import keep_alive
 from discord.ext import commands
 from github import Github
 g = Github()
@@ -27,21 +27,18 @@ async def guide(ctx, arg=""):
     contents = '\n'.join(file.read().splitlines()[2:])
     await ctx.channel.send(contents)
 
-@bot.command()
-async def help(ctx,args=""):
 
+@bot.command()
+async def help(ctx, args=""):
+    
     if args == "":
         stringBuilder = ''
         for key in commandDescriptions:
-            stringBuilder += '!{command} - {description}\n'.format(command=key,description=commandDescriptions[key])
-            
-        for guide in os.listdir(guideDirectory):
-            file = open(guideDirectory+guide,'r')
-            description = file.read().splitlines()[0]
-            stringBuilder += '!'+description +'\n'
-        
+            stringBuilder += '!{command} - {description}\n'.format(
+                command=key, description=commandDescriptions[key])
         stringBuilder += '\nIf you have any ideas for other commands that could be added, please submit a PR on the git-hub'
-        await ctx.author.send(stringBuilder)
+        embed = discord.Embed(title="Command list",description=stringBuilder)
+        await ctx.author.send(embed=embed)
     else:
         if args in commandDescriptions.keys():
             await ctx.channel.send("{command} - {description}".format(command=args,description=commandDescriptions[args]))
@@ -91,5 +88,5 @@ async def on_message(message):
 
 
 my_secret = os.environ['token']
-#keep_alive()
+keep_alive()
 bot.run(my_secret)
