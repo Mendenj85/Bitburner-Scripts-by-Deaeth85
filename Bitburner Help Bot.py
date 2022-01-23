@@ -62,6 +62,8 @@ async def guide(ctx, arg=""):
         
     embed.set_author(name=botName, icon_url=botUrl)
     embed.set_thumbnail(url=botUrl)
+    if(len(''.join(content)) > 600):
+        return await ctx.author.send(embed=embed)
     return await ctx.channel.send(embed=embed)
 
 
