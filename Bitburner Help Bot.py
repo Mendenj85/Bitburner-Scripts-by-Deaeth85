@@ -6,7 +6,7 @@ from github import Github
 g = Github()
 repo = g.get_repo("danielyxie/bitburner")
 contents = repo.get_contents("markdown")
-paths = [x.path for x in contents if x.path != "markdown/index.md"]
+paths = [x.path for x in contents if x.path != "markdown/index.md" or x.path !='markdown/bitburner.md']
 paths.sort(key=lambda x: len(x))
 bot = commands.Bot(command_prefix='!',help_command=None)
 
@@ -16,6 +16,7 @@ botName = "Bitburner Help Bot"
 commandDescriptions = {
     'help':'Displays possible commands (wow what a shocker)',
     'md':'<arg> Link to Bitburner Markdown pages based on the args you supply',
+    'test':'testing'
 }
 guideDirectory = os.getcwd()+'/guides/'
 #Get list of files for guides without the extension
@@ -52,7 +53,7 @@ async def guide(ctx, arg=""):
         else:
             fieldValues.append('\n'.join(content[startIndex:]))
             
-    embed = discord.Embed(title=embedTitle, url=botUrl)
+    embed = discord.Embed(title=embedTitle, url=botUrl,color=0x00bc38)
     #for every {FIELD} add an embed field with the corresponding value
     if len(fieldTitles) > 0:
         for index in range(len(fieldTitles)):
@@ -81,7 +82,7 @@ async def help(ctx, args=""):
             stringBuilder += f"**!{name}** - {description}\n"
             
         stringBuilder += '\nIf you have any ideas for other commands that could be added, please submit a PR on the git-hub'
-        embed = discord.Embed(title="Command list",description=stringBuilder, url = botUrl)
+        embed = discord.Embed(title="Command list",description=stringBuilder, url = botUrl,color=0x00bc38)
         embed.set_author(name=botName, icon_url=botUrl)
         embed.set_thumbnail(url=botUrl)
         await ctx.author.send(embed=embed)
@@ -98,18 +99,45 @@ async def help(ctx, args=""):
             
 @bot.command()
 async def md(ctx, args=""):
+    allowedSpoilerList = ["endgame","help","coding-contract"]
+    spoilersAllowed = False
+    
+    for channel in allowedSpoilerList:
+        if ctx.channel.name.startswith(channel): spoilersAllowed = True
+        
     if args == "":
         return await ctx.channel.send("Usage: !md <arg>")
     userInput = args
     linkList = []
-    for path in paths:
-        function = path.split('.')[-2]
-        if userInput.lower() == function:
-            linkList.append("<https://github.com/danielyxie/bitburner/blob/dev/" + path +">\n")
+    
+    if '.' not in userInput:
+        for path in paths:
+            function = path.split('.')[-2]
+            if userInput.lower() == function:
+                if spoilersAllowed or path.split('.')[-3] == 'ns':
+                    linkList.append("<https://github.com/danielyxie/bitburner/blob/dev/" + path +">\n")
+                else: linkList.append("ENDGAME SPOILER: ||<https://github.com/danielyxie/bitburner/blob/dev/" + path +">||\n")
+    else:
+        nameSpace = userInput.lower().split('.')[0]
+        functionName = userInput.lower().split('.')[1]
+        for path in paths:
+            print(path)
+            function = path.split('.')[-2]
+            if functionName == function and path.split('.')[-3] == nameSpace:
+                if spoilersAllowed or nameSpace == 'ns':
+                    linkList.append("<https://github.com/danielyxie/bitburner/blob/dev/" + path +">\n")
+                else: linkList.append("ENDGAME SPOILER: ||<https://github.com/danielyxie/bitburner/blob/dev/" + path +">||\n")
+            
     if(len(linkList) > 0):
         return await ctx.channel.send(''.join(linkList))
     await ctx.channel.send("That page does not exist!")
     
+@bot.command()
+async def test(ctx):
+    if(ctx.channel.name.startswith("endgame")):
+        await ctx.channel.send(ctx.channel.name)
+    else:
+        await ctx.channel.send("NOT ENDGAME")
 @bot.event
 async def on_ready():
     print('We have logged in as {0.user}'.format(bot))
