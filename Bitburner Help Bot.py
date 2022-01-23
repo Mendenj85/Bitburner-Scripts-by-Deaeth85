@@ -29,8 +29,7 @@ for guide in os.listdir(guideDirectory):
 
 @bot.command()
 async def guide(ctx, arg=""):
-    file = open(guideDirectory+arg+'.txt','r')
-    fileContent = file.read().splitlines()
+    fileContent = guideContents[arg+'.txt'].splitlines()
     
     embedTitle = fileContent[1]
     content = fileContent[3:] #Everything from 4th line onwards, previous lines are reserved for title and description
@@ -90,8 +89,7 @@ async def help(ctx, args=""):
         if args in commandDescriptions.keys():
             await ctx.channel.send("{command} - {description}".format(command=args,description=commandDescriptions[args]))
         elif args in fileList:
-            file = open(guideDirectory+args+'.txt','r')
-            fileContents = file.read().splitlines()
+            fileContents = guideContents[args+'.txt'].splitlines()
             argDescription = fileContents[0]
             content = fileContents[3:]
             if(len(''.join(content)) > 600):

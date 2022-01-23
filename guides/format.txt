@@ -1,5 +1,5 @@
 shows how to format .js code in Discord
-This is how to format code blocks
+This is how to format code blocks in Discord
 
 {FIELD}This:
 \`\`\`js
