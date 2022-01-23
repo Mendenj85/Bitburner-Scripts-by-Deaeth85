@@ -68,14 +68,14 @@ async def help(ctx, args=""):
     if args == "":
         stringBuilder = ''
         for key in commandDescriptions:
-            stringBuilder += '!{command} - {description}\n'.format(
+            stringBuilder += '**!{command}** - {description}\n'.format(
                 command=key, description=commandDescriptions[key])
         
         for guide in guideContents:
             name = os.path.splitext(guide)[0] #get rid of the file extension
             fileContent = guideContents[guide].splitlines()
             description = fileContent[0]
-            stringBuilder += f"!{name} - {description}\n"
+            stringBuilder += f"**!{name}** - {description}\n"
         stringBuilder += '\nIf you have any ideas for other commands that could be added, please submit a PR on the git-hub'
         embed = discord.Embed(title="Command list",description=stringBuilder, url = botUrl)
         embed.set_author(name=botName, icon_url=botUrl)
