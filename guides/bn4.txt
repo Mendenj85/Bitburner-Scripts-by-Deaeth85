@@ -1,4 +1,5 @@
 Explains the updates to BN4
+Updates to Singularity API
 
 The updated SF4.1 gives all Singularity functions now. The other change is the ram cost of singularity based scripts outside of BN4
 4.1 = 16x ram cost

@@ -58,7 +58,7 @@ async def guide(ctx, arg=""):
         for index in range(len(fieldTitles)):
             embed.add_field(name=fieldTitles[index][0],value=fieldValues[index],inline=False)
     else:
-        embed.description = ''.join(content)
+        embed.description = '\n'.join(content)
         
     embed.set_author(name=botName, icon_url=botUrl)
     embed.set_thumbnail(url=botUrl)
