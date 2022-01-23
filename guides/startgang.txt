@@ -1,4 +1,4 @@
-Tells the requirments to start a gang outside of BN2
+Tells the requirments to start a gang
 How to start up a gang
 
 {FIELD}While in BN 2.x
