@@ -10,6 +10,8 @@ paths = [x.path for x in contents if x.path != "markdown/index.md"]
 paths.sort(key=lambda x: len(x))
 bot = commands.Bot(command_prefix='!',help_command=None)
 
+botUrl = "https://i.ibb.co/LSbWqj0/Bitburner-Logo.png"
+botName = "Bitburner Help Bot"
 
 commandDescriptions = {
     'help':'Displays possible commands (wow what a shocker)',
@@ -19,13 +21,45 @@ guideDirectory = os.getcwd()+'/guides/'
 #Get list of files for guides without the extension
 fileList = [os.path.splitext(file)[0] for file in os.listdir(guideDirectory)]
 
-
+guideContents = {}
+for guide in os.listdir(guideDirectory):
+    file = open(guideDirectory+guide,'r')
+    content = file.read()
+    guideContents.update({guide:content})
 
 @bot.command()
 async def guide(ctx, arg=""):
     file = open(guideDirectory+arg+'.txt','r')
-    contents = '\n'.join(file.read().splitlines()[2:])
-    await ctx.channel.send(contents)
+    fileContent = file.read().splitlines()
+    
+    embedTitle = fileContent[1]
+    content = fileContent[3:] #Everything from 4th line onwards, previous lines are reserved for title and description
+
+    fieldTitles = []
+    for lineNum,line in enumerate(content):
+        if '{FIELD}' in line:
+            fieldTitles.append([line.replace('{FIELD}',''),lineNum])
+
+    fieldValues = []
+    for index in range(len(fieldTitles)):
+        #This breaks down everything between {FIELD}s into individual entries
+        startIndex = fieldTitles[index][1]+1
+        #Check if this is the last {FIELD}
+        if index != len(fieldTitles)-1:
+            endIndex = fieldTitles[index+1][1]
+            fieldValues.append('\n'.join(content[startIndex:endIndex]))
+        #If this is the last {FIELD} get everything after it as an entry
+        else:
+            fieldValues.append('\n'.join(content[startIndex:]))
+            
+    embed = discord.Embed(title=embedTitle, url=botUrl)
+    #for every {FIELD} add an embed field with the corresponding value
+    for index in range(len(fieldTitles)):
+        embed.add_field(name=fieldTitles[index][0],value=fieldValues[index],inline=False)
+        
+    embed.set_author(name=botName, icon_url=botUrl)
+    embed.set_thumbnail(url=botUrl)
+    return await ctx.channel.send(embed=embed)
 
 
 @bot.command()
@@ -36,9 +70,18 @@ async def help(ctx, args=""):
         for key in commandDescriptions:
             stringBuilder += '!{command} - {description}\n'.format(
                 command=key, description=commandDescriptions[key])
+        
+        for guide in guideContents:
+            name = os.path.splitext(guide)[0] #get rid of the file extension
+            fileContent = guideContents[guide].splitlines()
+            description = fileContent[0]
+            stringBuilder += f"!{name} - {description}\n"
         stringBuilder += '\nIf you have any ideas for other commands that could be added, please submit a PR on the git-hub'
-        embed = discord.Embed(title="Command list",description=stringBuilder)
+        embed = discord.Embed(title="Command list",description=stringBuilder, url = botUrl)
+        embed.set_author(name=botName, icon_url=botUrl)
+        embed.set_thumbnail(url=botUrl)
         await ctx.author.send(embed=embed)
+        
     else:
         if args in commandDescriptions.keys():
             await ctx.channel.send("{command} - {description}".format(command=args,description=commandDescriptions[args]))

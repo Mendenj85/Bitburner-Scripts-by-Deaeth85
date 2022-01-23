@@ -1,4 +1,4 @@
-format - shows how to format .js code in Discord
+shows how to format .js code in Discord
 
 This:
 \`\`\`js

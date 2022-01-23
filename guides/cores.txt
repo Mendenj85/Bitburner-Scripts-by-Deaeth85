@@ -1,4 +1,4 @@
-cores - Gives a description of what core upgrades do
+Gives a description of what core upgrades do
 
 (cores-1)/16 additive effect to grow/weaken
 Timings don't change

@@ -1,4 +1,4 @@
-startgang - Tells the requirments to start a gang outside of BN2
+Tells the requirments to start a gang outside of BN2
 
 You need -54k Karma to start a gang outside of BN2
 This equates to 15 hours of 100% homicide

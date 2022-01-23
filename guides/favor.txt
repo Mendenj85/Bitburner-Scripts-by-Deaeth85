@@ -1,8 +1,10 @@
-favor - Gives a breakdown of earning favor
+Gives a breakdown of earning favor
+This is how to get favor
 
-Favor is earned by:
+{FIELD}Favor is earned by:
 You can get 1 every 24 hours by backing up your save via the Augments tab in-game
 You gain favor based on earned rep after an aug install
+{FIELD} Other ways to earn favor
 You can mouse over the reputation on main faction page to see how much favor you will earn on aug install
 If you go do it all at once, it takes roughly 462.5k rep to get the 150 favor needed for donations
 This is easier to achieve by earning roughly 70k - 100k rep, then doing an install, as the next run you will earn more favor, faster

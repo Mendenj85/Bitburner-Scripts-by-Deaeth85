@@ -1,3 +1,3 @@
-stats - Link to Insights custom stats script
+Link to Insights custom stats script
 
 <https://github.com/bitburner-official/bitburner-scripts/blob/master/custom-stats.js>

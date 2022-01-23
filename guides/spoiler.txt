@@ -1,4 +1,4 @@
-spoiler - Shows how to format spoilers for text in Discord
+Shows how to format spoilers for text in Discord
 
 This is how you format spoilers:
 \|\|text\|\|

@@ -1,4 +1,4 @@
-rep - Gives a list of ways to earn rep
+Gives a list of ways to earn rep
 
 Methods of gaining rep:
 1. Job: higher stats increase rep gain

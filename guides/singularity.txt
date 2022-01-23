@@ -1,3 +1,3 @@
-singularity - Link to Bitburner Markdown Singularity page
+Link to Bitburner Markdown Singularity page
 
 <https://github.com/danielyxie/bitburner/blob/master/markdown/bitburner.singularity.md>
