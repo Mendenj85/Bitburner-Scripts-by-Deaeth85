@@ -262,6 +262,8 @@ async def rep(ctx):
                     value="Successful infiltrations can earn rep", inline=False)
     embed.add_field(name="Coding Contracts",
                     value="give rep to a single joined faction, or spread across all joined factions", inline=False)
+    embed.add_field(name="Sleeves", value="Sleeves can work 1 per faction to help you gain rep, and are unaffected by bn multi's", inline=False)
+    embed.add_field(name="Share", value="Sharing ram can boost rep gain")
     embed.add_field(
         name="Endgame", value="||high Intelligence has an effect on reputation gain||", inline=False)
     embed.add_field(
