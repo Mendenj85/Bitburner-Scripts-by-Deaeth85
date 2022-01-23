@@ -1,7 +1,6 @@
 Gives assistance to players "still lost" right before, or after, installing TRP
-Escape
-
 How to "Find what you are looking for"
+
 {FIELD}Step 1
 ||Purchase The "Special Aug" from an end-game faction and install augs||
 {FIELD}Step 2

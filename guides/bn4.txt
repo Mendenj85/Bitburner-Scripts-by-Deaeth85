@@ -1,7 +1,6 @@
 Explains the updates to BN4
-Updates to Singularity API
+The following is what you get for completing BN4
 
-The following is what you get for completing BN4 - ram multiplier applies to singularity based scripts only
 {FIELD}4.1
 All Singularities & 16x ram cost multiplier
 {FIELD}4.2 

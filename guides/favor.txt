@@ -1,7 +1,6 @@
 Gives a breakdown of earning favor
-Earning Favor
-
 Here's a few different ways to earn favor
+
 {FIELD}Export Save
 You can get 1 every 24 hours by backing up your save via the Augments tab in-game
 {FIELD}Augmentation Install

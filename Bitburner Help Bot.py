@@ -92,7 +92,11 @@ async def help(ctx, args=""):
         elif args in fileList:
             file = open(guideDirectory+args+'.txt','r')
             argDescription = file.read().splitlines()[0]
-            await ctx.channel.send("{description}".format(description=argDescription))
+            content = file.read().splitlines()[3:]
+            if(len(''.join(content)) > 600):
+                await ctx.channel.send("{args} - {description} (Will pm user)".format(args=args,description=argDescription))
+            else:
+                await ctx.channel.send("{args} - {description}".format(args=args,description=argDescription))
         else:
             await ctx.channel.send("Command doesn't exist!")
             
