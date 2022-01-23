@@ -1,0 +1,9 @@
+Explains the updates to BN4
+The following is what you get for completing BN4
+
+{FIELD}4.1
+All Singularities & 16x ram cost multiplier
+{FIELD}4.2 
+4x ram cost multiplier
+{FIELD}4.3
+1x ram cost multiplier

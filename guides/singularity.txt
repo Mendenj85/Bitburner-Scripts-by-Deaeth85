@@ -1,0 +1,4 @@
+Link to Bitburner Markdown Singularity page
+Singularity API
+
+Click this link - <https://github.com/danielyxie/bitburner/blob/master/markdown/bitburner.singularity.md>

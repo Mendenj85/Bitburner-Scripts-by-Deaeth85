@@ -1,0 +1,4 @@
+Pulls the Recommended Bit Node Order page from "Read The Docs"
+Here's a Generalized BitNode Order Guide
+
+Click this link - <https://bitburner.readthedocs.io/en/latest/guidesandtips/recommendedbitnodeorder.html>

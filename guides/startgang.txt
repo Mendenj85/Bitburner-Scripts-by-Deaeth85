@@ -1,0 +1,11 @@
+Tells the requirments to start a gang outside of BN2
+How to start up a gang
+
+{FIELD}While in BN 2.x
+Join any gang related faction, then click 'Manage Gang'
+{FIELD}Outside of BN 2
+You need -54k Karma to start a gang
+{FIELD}How to get the Karma
+This equates to 15 hours of 100% success rate homicide
+{FIELD}How to get the Karma faster
+Sleeves can help reduce this time drastically

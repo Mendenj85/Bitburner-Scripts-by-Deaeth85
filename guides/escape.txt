@@ -1,0 +1,11 @@
+Gives assistance to players "still lost" right before, or after, installing TRP
+How to "Find what you are looking for"
+
+{FIELD}Step 1
+||Purchase The "Special Aug" from an end-game faction and install augs||
+{FIELD}Step 2
+||Look "around" the cave to find what you are looking for||
+{FIELD}Step 2.5 - if you're still lost
+||The "cave" is generally found deep in the network beyond `scan-analyze 10` range||
+{FIELD}Step 3
+If you are still lost, maybe this clue from Zea might help - https://discord.com/channels/415207508303544321/415207923506216971/929207305612951592

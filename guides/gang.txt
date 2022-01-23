@@ -1,0 +1,4 @@
+Link to Bitburner Markdown Gang Interface page
+Where to find the Gangs API
+
+Click this link: <https://github.com/danielyxie/bitburner/blob/master/markdown/bitburner.gang.md>

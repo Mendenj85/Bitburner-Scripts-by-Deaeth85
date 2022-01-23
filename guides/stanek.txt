@@ -1,0 +1,15 @@
+Basics of Bit Node 13 (Stanek's Gift)
+How to get started in BN13
+
+{FIELD}Where do I get Stanek's Gift
+Visit the [church] in Chongqing
+{FIELD}How do I charge fragments?
+use `ns.stanek.charge(x,y)`
+{FIELD}How do I maximize fragment effects?
+Each fragment keeps track of how many TIMES it has been charged, as well as the average number of THREADS used to charge it.  The number of THREADS is much more important than the number of TIMES it has been charged.  Generally you only want to use your biggest server (and the biggest number of threads possible) to charge the fragment.  The TIMES and THREADS count are set to 0 when you remove a fragment from the gift, when you soft reset, or when you install augmentations
+{FIELD}How do I reduce stat penalties?
+Two additional augmentations are available from the Church of the Machine God faction.  The first reduces the penalties from 10% -> 5% and requires 1 million faction reputation.  The second reduces the penalties from 5% -> 0% and costs 100 million faction reputation
+{FIELD}How do I gain Church of the Machine God rep?
+Every time you charge Stanek's gift, you gain reputation.  The more threads you use, the more reputation you gain
+{FIELD}How long does it take to charge a fragment?
+Although there is no method to get this time (yet), the times are hard-coded into the charge function: 1000ms regularly, and 200ms in catchup time

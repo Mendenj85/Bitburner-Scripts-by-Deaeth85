@@ -1,0 +1,13 @@
+Gives a breakdown of earning favor
+Here's a few different ways to earn favor
+
+{FIELD}Export Save
+You can get 1 every 24 hours by backing up your save via the Augments tab in-game
+{FIELD}Augmentation Install
+You gain favor based on earned rep after an aug install
+{FIELD}How much on install?
+You can mouse over the reputation on main page of the faction to see how much favor you will earn on aug install
+{FIELD}Getting 150 Favor/Donation Ability
+If you do it in one shot, it takes roughly 462.5k rep to get the 150 favor needed for donations
+{FIELD}Getting Donation Status Faster
+This is easier to achieve by earning roughly 70k - 100k rep, then doing an aug install, as the next run you will earn more favor, and faster
