@@ -16,7 +16,6 @@ botName = "Bitburner Help Bot"
 commandDescriptions = {
     'help':'Displays possible commands (wow what a shocker)',
     'md':'<arg> Link to Bitburner Markdown pages based on the args you supply',
-    'test':'testing'
 }
 guideDirectory = os.getcwd()+'/guides/'
 #Get list of files for guides without the extension
@@ -132,12 +131,7 @@ async def md(ctx, args=""):
         return await ctx.channel.send(''.join(linkList))
     await ctx.channel.send("That page does not exist!")
     
-@bot.command()
-async def test(ctx):
-    if(ctx.channel.name.startswith("endgame")):
-        await ctx.channel.send(ctx.channel.name)
-    else:
-        await ctx.channel.send("NOT ENDGAME")
+    
 @bot.event
 async def on_ready():
     print('We have logged in as {0.user}'.format(bot))
