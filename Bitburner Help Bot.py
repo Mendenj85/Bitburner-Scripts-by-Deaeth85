@@ -16,6 +16,7 @@ botName = "Bitburner Help Bot"
 commandDescriptions = {
     'help':'Displays possible commands (wow what a shocker)',
     'md':'<arg> Link to Bitburner Markdown pages based on the args you supply',
+    'ns':'<arg> Link to Bitburner Markdown pages based on the args you supply',
 }
 guideDirectory = os.getcwd()+'/guides/'
 #Get list of files for guides without the extension
