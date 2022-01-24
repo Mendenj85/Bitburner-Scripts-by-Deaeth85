@@ -13,10 +13,10 @@ unlocked at 150 favor, 1 rep per $1m donated, before bonuses
 Successful infiltrations can earn rep
 {FIELD}Coding Contracts
 give rep to a single joined faction, or spread across all joined factions
-{FIELD}Endgame: ||Sleeves||
-||Sleeves can work 1 per faction to help you gain rep, and are unaffected by bn multi's||
 {FIELD}Share
 Sharing ram can boost rep gain
+{FIELD}Endgame
+||Sleeves can work 1 per faction to help you gain rep, and are unaffected by bn multi's||
 {FIELD}Endgame
 ||high Intelligence has an effect on reputation gain||
 {FIELD}Endgame
