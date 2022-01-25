@@ -112,7 +112,8 @@ async def md(ctx, args=""):
         921120989000114257,
         921193848212967444,
         923282733332054126,
-        547337280885489667]
+        547337280885489667,
+        934936006585614426]
     spoilersAllowed = False
     if(isinstance(ctx.channel,discord.channel.DMChannel)):
         spoilersAllowed = True
