@@ -117,8 +117,7 @@ async def md(ctx, args=""):
     if(isinstance(ctx.channel,discord.channel.DMChannel)):
         spoilersAllowed = True
     else:
-        for channelID in allowedSpoilerList:
-            if ctx.channel.id==channelID: spoilersAllowed = True
+        if ctx.channel.id in allowedSpoilerList: spoilersAllowed = True
         
     if args == "":
         return await ctx.channel.send("Usage: !md <arg>")
