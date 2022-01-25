@@ -1,4 +1,5 @@
 import os
+from click import exceptions
 import discord
 from keep_alive import keep_alive
 from discord.ext import commands
@@ -98,7 +99,33 @@ async def help(ctx, args=""):
             await ctx.channel.send(toSend)
         else:
             await ctx.channel.send("Command doesn't exist!")
-            
+        
+exceptions = [
+    "server",
+    "player",
+    "tix",
+    "playerskills",
+    "characterinfo",
+    "basichgwoptions",
+    "charactermult",
+    "codingcontract",
+    "codingattemptoptions",
+    "hackingformulas",
+    "hackingmultipliers",
+    "hacknet",
+    "hacknetmultipliers",
+    "hacknetnodeconstants",
+    "hacknetnodesconstants",
+    "hacknetserverconstants",
+    "hacknetserverformulas",
+    "ns",
+    "netscriptport",
+    "nodestats",
+    "skillsformulas",
+    "stockorder",
+    "stockorderobject",
+    "userinterface"]    
+nsSpoilers = ["bladeburner","corporation","gang","sleeve","stanek"]
 @bot.command(aliases=['ns'])
 async def md(ctx, args=""):
     allowedSpoilerList = [
@@ -129,7 +156,7 @@ async def md(ctx, args=""):
             function = path.split('.')[-2]
             if userInput.lower() == function:
                 #Spoiler links if spoilers aren't allowed (except ns functions)
-                if spoilersAllowed or path.split('.')[-3] == 'ns':
+                if spoilersAllowed or ((function in exceptions or path.split('.')[-3] in exceptions) and function not in nsSpoilers):
                     linkList.append("<https://github.com/danielyxie/bitburner/blob/dev/" + path +">\n")
                 else: linkList.append("ENDGAME SPOILER: ||<https://github.com/danielyxie/bitburner/blob/dev/" + path +">||\n")
     else:
@@ -138,7 +165,7 @@ async def md(ctx, args=""):
         for path in paths:
             function = path.split('.')[-2]
             if functionName == function and path.split('.')[-3] == nameSpace:
-                if spoilersAllowed or nameSpace == 'ns':
+                if spoilersAllowed or ((nameSpace in exceptions or function in exceptions) and function not in nsSpoilers):
                     linkList.append("<https://github.com/danielyxie/bitburner/blob/dev/" + path +">\n")
                 else: linkList.append("ENDGAME SPOILER: ||<https://github.com/danielyxie/bitburner/blob/dev/" + path +">||\n")
             
