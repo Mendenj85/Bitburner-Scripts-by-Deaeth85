@@ -102,13 +102,23 @@ async def help(ctx, args=""):
             
 @bot.command(aliases=['ns'])
 async def md(ctx, args=""):
-    allowedSpoilerList = ["endgame","help","coding-contract"]
+    allowedSpoilerList = [
+        415207923506216971,
+        923445881389338634,
+        923445914461413376,
+        923445961248870420,
+        415247422638522395,
+        921120953273036882,
+        921120989000114257,
+        921193848212967444,
+        923282733332054126,
+        547337280885489667]
     spoilersAllowed = False
     if(isinstance(ctx.channel,discord.channel.DMChannel)):
         spoilersAllowed = True
     else:
-        for channel in allowedSpoilerList:
-            if ctx.channel.name.startswith(channel): spoilersAllowed = True
+        for channelID in allowedSpoilerList:
+            if ctx.channel.id==channelID: spoilersAllowed = True
         
     if args == "":
         return await ctx.channel.send("Usage: !md <arg>")
