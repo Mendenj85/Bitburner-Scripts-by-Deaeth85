@@ -16,8 +16,7 @@ botName = "Bitburner Help Bot"
 commandDescriptions = {
     'help':'Displays possible commands (wow what a shocker)',
     'md':'<arg> Link to Bitburner Markdown pages based on the args you supply',
-    'ns':'<arg> Link to Bitburner Markdown pages based on the args you supply',
-
+    'ns':'!md alias',
 }
 guideDirectory = os.getcwd()+'/guides/'
 #Get list of files for guides without the extension
@@ -105,9 +104,11 @@ async def help(ctx, args=""):
 async def md(ctx, args=""):
     allowedSpoilerList = ["endgame","help","coding-contract"]
     spoilersAllowed = False
-    
-    for channel in allowedSpoilerList:
-        if ctx.channel.name.startswith(channel): spoilersAllowed = True
+    if(isinstance(ctx.channel,discord.channel.DMChannel)):
+        spoilersAllowed = True
+    else:
+        for channel in allowedSpoilerList:
+            if ctx.channel.name.startswith(channel): spoilersAllowed = True
         
     if args == "":
         return await ctx.channel.send("Usage: !md <arg>")
