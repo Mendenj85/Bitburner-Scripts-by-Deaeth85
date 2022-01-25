@@ -104,9 +104,11 @@ async def help(ctx, args=""):
 async def md(ctx, args=""):
     allowedSpoilerList = ["endgame","help","coding-contract"]
     spoilersAllowed = False
-    
-    for channel in allowedSpoilerList:
-        if ctx.channel.name.startswith(channel): spoilersAllowed = True
+    if(isinstance(ctx.channel,discord.channel.DMChannel)):
+        spoilersAllowed = True
+    else:
+        for channel in allowedSpoilerList:
+            if ctx.channel.name.startswith(channel): spoilersAllowed = True
         
     if args == "":
         return await ctx.channel.send("Usage: !md <arg>")
