@@ -93,10 +93,9 @@ async def help(ctx, args=""):
             fileContents = guideContents[args+'.txt'].splitlines()
             argDescription = fileContents[0]
             content = fileContents[3:]
-            if(len(''.join(content)) > 600):
-                await ctx.channel.send("{args} - {description} (Will pm user)".format(args=args,description=argDescription))
-            else:
-                await ctx.channel.send("{args} - {description}".format(args=args,description=argDescription))
+            toSend = "{args} - {description}".format(args=args,description=argDescription)
+            if(len(''.join(content)) > 600 and not isinstance(ctx.channel,discord.channel.DMChannel)): toSend += " (Will pm user)"
+            await ctx.channel.send(toSend)
         else:
             await ctx.channel.send("Command doesn't exist!")
             
@@ -163,6 +162,7 @@ async def on_message(message):
         return
     if len(message.content)==1:
         return
+    
     if content[0] in fileList:
         message.content = '!guide ' + content[0]
         return await bot.process_commands(message)
