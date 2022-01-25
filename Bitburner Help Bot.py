@@ -16,8 +16,7 @@ botName = "Bitburner Help Bot"
 commandDescriptions = {
     'help':'Displays possible commands (wow what a shocker)',
     'md':'<arg> Link to Bitburner Markdown pages based on the args you supply',
-    'ns':'<arg> Link to Bitburner Markdown pages based on the args you supply',
-
+    'ns':'!md alias',
 }
 guideDirectory = os.getcwd()+'/guides/'
 #Get list of files for guides without the extension
@@ -94,20 +93,31 @@ async def help(ctx, args=""):
             fileContents = guideContents[args+'.txt'].splitlines()
             argDescription = fileContents[0]
             content = fileContents[3:]
-            if(len(''.join(content)) > 600):
-                await ctx.channel.send("{args} - {description} (Will pm user)".format(args=args,description=argDescription))
-            else:
-                await ctx.channel.send("{args} - {description}".format(args=args,description=argDescription))
+            toSend = "{args} - {description}".format(args=args,description=argDescription)
+            if(len(''.join(content)) > 600 and not isinstance(ctx.channel,discord.channel.DMChannel)): toSend += " (Will pm user)"
+            await ctx.channel.send(toSend)
         else:
             await ctx.channel.send("Command doesn't exist!")
             
 @bot.command(aliases=['ns'])
 async def md(ctx, args=""):
-    allowedSpoilerList = ["endgame","help","coding-contract"]
+    allowedSpoilerList = [
+        415207923506216971,
+        923445881389338634,
+        923445914461413376,
+        923445961248870420,
+        415247422638522395,
+        921120953273036882,
+        921120989000114257,
+        921193848212967444,
+        923282733332054126,
+        547337280885489667,
+        934936006585614426]
     spoilersAllowed = False
-    
-    for channel in allowedSpoilerList:
-        if ctx.channel.name.startswith(channel): spoilersAllowed = True
+    if(isinstance(ctx.channel,discord.channel.DMChannel)):
+        spoilersAllowed = True
+    else:
+        if ctx.channel.id in allowedSpoilerList: spoilersAllowed = True
         
     if args == "":
         return await ctx.channel.send("Usage: !md <arg>")
@@ -152,6 +162,7 @@ async def on_message(message):
         return
     if len(message.content)==1:
         return
+    
     if content[0] in fileList:
         message.content = '!guide ' + content[0]
         return await bot.process_commands(message)
